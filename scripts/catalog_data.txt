@@ -1,0 +1,225 @@
+## authentication
+password-strength|live|Score a password with entropy, patterns, repeats and common-password checks
+password-breach-check|live|Check a password against HIBP using a 5-character hash prefix
+entropy-calculator|live|Show character-pool and effective entropy in bits
+crack-time|live|Estimate online, fast-hash and slow-hash crack times
+pattern-detection|live|Find sequences, keyboard walks, year suffixes, substitutions
+repeat-detection|live|Find repeated characters and repeated blocks
+common-passwords|live|Match against a local list of very common passwords
+password-generator|live|Generate random passwords with selectable character sets
+passphrase-generator|live|Generate multi-word passphrases with entropy breakdown
+pin-generator|live|Generate PINs that avoid repeats and predictable runs
+totp-generator|live|Generate and verify TOTP and HOTP codes from a base32 secret
+otpauth-uri-builder|live|Build otpauth:// links for authenticator apps, ready for QR
+password-policy-checker|live|Test passwords against a custom length and character policy
+backup-code-generator|live|Create printable one-time recovery code sets
+password-reuse-checker|live|Compare several passwords locally for reuse and similarity
+login-lockout-calculator|live|Calculate brute-force exposure for a lockout and rate-limit policy
+email-alias-generator|live|Generate plus-address and dot-variant aliases for sign-ups
+password-csv-auditor|live|Audit an exported password CSV for weak, reused and old entries
+mfa-method-advisor|live|Recommend a multi-factor method from a short questionnaire
+## encryption
+hash-generator|live|Hash text with MD5 and the SHA family
+hmac-generator|live|Compute and verify HMAC signatures, including webhook signatures
+symmetric-encrypt-decrypt|live|Encrypt and decrypt text or files with AES-256-GCM and a password, fully offline
+key-pair-generator|live|Generate RSA, EC, Ed25519 and X25519 key pairs as PEM or JWK
+rsa-oaep-tool|live|Encrypt and decrypt data with RSA-OAEP keys
+digital-signature-tool|live|Sign and verify data with RSA-PSS, ECDSA or Ed25519
+ecdh-key-exchange|live|Derive a shared secret from two EC keys
+jwk-pem-converter|live|Convert keys between JWK and PEM
+key-derivation-tool|live|Derive keys with PBKDF2 or HKDF and time the cost
+hash-identifier|live|Identify the likely hash type of a string
+bcrypt-tool|Create and verify bcrypt hashes
+argon2-tool|Create and verify Argon2 hashes
+crc-checksum-calculator|live|Compute CRC32, CRC16 and Adler-32 checksums
+classical-cipher-tool|live|Apply Caesar, ROT13, Vigenere and Atbash ciphers
+xor-cipher-tool|live|XOR text or bytes with a key and brute-force single-byte keys
+openpgp-tool|Generate PGP keys, encrypt, decrypt, sign and verify
+ssh-key-fingerprint|live|Compute SHA-256 and MD5 fingerprints of SSH public keys
+merkle-tree-builder|live|Build a Merkle tree and root hash from a list
+randomness-tester|live|Run basic statistical randomness tests on bytes
+mnemonic-validator|Validate a BIP-39 phrase checksum locally
+## web-security
+security-headers-analyzer|Grade pasted HTTP response headers for security gaps
+csp-analyzer|Parse a Content-Security-Policy and flag weaknesses
+csp-builder|Build a Content-Security-Policy from selected sources
+cookie-attribute-analyzer|Analyze Set-Cookie attributes for Secure, HttpOnly, SameSite
+cors-policy-tester|Simulate a CORS check for an origin, method and headers
+permissions-policy-builder|Build a Permissions-Policy header
+sri-csp-hash-generator|Create SRI integrity values and CSP script hashes
+html-sanitizer|Sanitize untrusted HTML and preview the result
+output-encoding-tool|Escape strings for HTML, attribute, JS, URL, CSS and SQL contexts
+url-inspector|Break a URL into parts and flag suspicious traits and look-alike domains
+security-txt-generator|Generate a security.txt file
+x509-decoder|Decode certificates and CSRs and compute pin hashes
+tls-cipher-suite-lookup|Look up TLS cipher suites and their strength
+csp-report-parser|Parse CSP violation reports into readable rows
+html-security-linter|Scan HTML for mixed content, unsafe links, inline handlers, missing SRI
+iframe-sandbox-builder|Build an iframe sandbox attribute with explanations
+web-server-config-generator|Generate nginx, Apache and Netlify config for headers, TLS and redirects
+http-message-parser|Parse raw HTTP requests, responses and captured webhook payloads into tables
+browser-security-checker|Test this browser for secure context, WebCrypto, passkeys and permissions
+cache-control-tool|Explain and build Cache-Control headers
+web-security-checklist|Track a web app security checklist and export progress
+stride-threat-modeler|Build a STRIDE threat model and export it
+cvss-calculator|Calculate CVSS v3.1 and v4.0 scores
+owasp-reference|Search OWASP web, API and LLM risk lists
+same-origin-checker|Tell whether two URLs are same-origin or same-site
+## network-security
+ip-address-analyzer|Parse IPv4 and IPv6, convert bases, classify private and reserved ranges
+cidr-calculator|Calculate subnets, masks, ranges and split networks
+ip-range-to-cidr|Convert IP ranges to minimal CIDR lists and back
+mac-address-tool|Parse, format and identify MAC addresses
+port-service-reference|Look up common ports, services and risks
+firewall-rule-generator|Generate iptables, nftables, ufw and Windows rules
+firewall-rule-explainer|Explain firewall rules in plain English
+dns-record-parser|Parse zone files and dig output into rows
+email-auth-record-tool|Parse and build SPF, DKIM and DMARC records
+reverse-dns-name-generator|Create in-addr.arpa and ip6.arpa names from IPs
+har-file-analyzer|Analyze HAR files for secrets, third parties and insecure requests
+wireguard-config-builder|Generate WireGuard keys and config files
+ssh-config-builder|Build an ssh_config file
+packet-header-decoder|Decode IPv4, TCP and UDP header hex
+nmap-command-builder|Build Nmap commands from options with explanations
+cidr-membership-checker|Match many IPs against a CIDR blocklist
+detection-rule-builder|Build Snort, Suricata and Sigma rule templates
+network-output-parser|Parse ping, traceroute, netstat and nslookup output
+transfer-time-calculator|Calculate transfer time from size and bandwidth
+websocket-tester|Connect to a WebSocket URL and send test messages from the browser
+## code-analysis
+regex-tester|Test and replace with regular expressions and explain matches
+redos-checker|Detect regex patterns prone to catastrophic backtracking
+secret-scanner|Find API keys, tokens and weak values in pasted text and .env files
+insecure-code-pattern-scanner|Flag dangerous patterns in JS, Python, PHP and SQL snippets
+manifest-risk-scanner|Check package manifests for unpinned versions and risky scripts
+license-detector|Identify open-source licenses from text
+sbom-generator|Create a CycloneDX SBOM from a dependency list
+code-metrics|Count lines and estimate complexity
+iac-security-linter|Lint Dockerfile, Kubernetes, GitHub Actions and Terraform security
+shell-command-explainer|Explain a shell command and flag dangerous flags
+typosquat-package-checker|Compare package names with popular names for look-alikes
+commit-message-linter|Check commit messages against Conventional Commits
+## data-security
+pii-redactor|Detect and mask personal data in text and JSON
+shamir-secret-sharing|Split and recombine a secret into shares
+data-classifier|Suggest sensitivity labels for field names and samples
+csv-anonymizer|Mask, hash or generalize CSV columns
+k-anonymity-checker|Compute k-anonymity for chosen CSV columns
+mock-data-generator|Generate mock JSON, REST and GraphQL payloads and fake records from a custom schema
+identifier-validator|Validate card, IBAN, ISBN and VIN check digits
+retention-schedule-builder|Build a data retention schedule table
+data-inventory-builder|Build a data inventory and processing map
+text-watermarker|Embed and read invisible zero-width text watermarks
+differential-privacy-calculator|Calculate Laplace noise for a chosen epsilon
+url-tracking-cleaner|Strip tracking parameters from links
+risk-register-builder|Build a risk register with a likelihood-impact matrix
+## api-security
+jwt-tool|Decode, verify, sign and audit JWTs locally; secret keys never leave the device
+oauth-request-builder|Build OAuth and OIDC authorization requests with PKCE
+openapi-security-analyzer|Review an OpenAPI file for security gaps
+http-request-builder|Build requests and convert curl to fetch, axios, Python, Go, Rust and PHP
+json-schema-validator|Validate JSON against a JSON Schema
+rate-limit-calculator|Plan token-bucket and leaky-bucket limits
+graphql-query-analyzer|Measure GraphQL depth and complexity and flag risks
+saml-assertion-decoder|Decode SAML requests and responses
+http-status-reference|Look up HTTP status codes
+auth-header-builder|Build and decode Basic and Bearer authorization headers
+aws-sigv4-signer|Sign requests with AWS Signature V4 locally
+problem-details-builder|Build RFC 9457 problem-details responses
+binary-serialization-decoder|Decode raw Protobuf, MessagePack and CBOR
+## forensics
+file-signature-identifier|Identify file types from magic bytes
+hex-viewer-strings|View a hex dump and extract strings from a file
+metadata-tool|View and remove metadata (GPS, camera, dates) from images and PDFs
+timestamp-converter|Convert Unix, Windows FILETIME and WebKit timestamps
+log-analyzer|Stream, filter and summarize large nginx, Apache and auth logs and flag anomalies
+email-header-analyzer|Trace routes and SPF, DKIM and DMARC results in headers
+yara-lite-matcher|Test YARA-style string rules on text and files
+hash-wordlist-matcher|live|Match unsalted hashes against your own wordlist to audit weak passwords and solve CTF tasks
+ioc-extractor|Extract IPs, domains, URLs and hashes from text
+security-report-builder|Build incident and vulnerability reports
+steganography-tool|Hide and reveal password-protected text inside PNG images
+pdf-risk-inspector|Scan a PDF for scripts and embedded files
+archive-inspector|List archive contents and flag zip-bomb traits
+qr-decoder|Decode QR images and flag risky payloads
+## developer-utilities
+uuid-generator|live|Generate UUID v4 values in bulk
+random-string|live|Generate random strings and tokens
+base64|live|Encode and decode Base64 with Unicode
+qr-generator|live|Generate QR codes for text, URLs, Wi-Fi, email and phone
+json-formatter|Format, minify, sort and validate JSON
+xml-formatter|Format and validate XML
+yaml-formatter|Format and validate YAML
+toml-formatter|Format and validate TOML
+sql-formatter|Format SQL
+html-formatter|Format and minify HTML
+css-formatter|Format and minify CSS
+js-formatter|Format and minify JavaScript
+graphql-formatter|Format GraphQL
+data-format-converter|Convert between JSON, YAML, TOML, XML and CSV
+csv-spreadsheet-viewer|View, sort, filter and export CSV and XLSX
+query-tester|Run JSONPath, XPath and CSS selectors on pasted data
+diff-viewer|Compare two texts or JSON files side by side
+markdown-previewer|Preview Markdown live and export HTML or PDF
+html-markdown-converter|Convert HTML to Markdown and back
+markdown-table-generator|Edit tables visually and export Markdown or HTML
+html-table-extractor|Extract tables from pasted HTML into CSV
+json-to-types|Generate TypeScript, Go, Python types and SQL tables from JSON
+json-schema-generator|Infer a JSON Schema from sample JSON
+text-case-converter|Convert case styles and make URL slugs
+lorem-ipsum-generator|Generate placeholder text
+line-processor|Sort, dedupe, reverse, trim and number lines
+url-encoder-query-builder|Percent-encode text and parse or build query strings
+unicode-inspector|Inspect code points and normalization, find or strip invisible characters
+text-encoding-converter|Convert text to binary, hex, octal, Morse and NATO
+base-n-encoder|Encode and decode Base32, Base58, Base85 and Hex
+number-format-converter|Convert Roman numerals, number words and Bengali digits
+number-base-converter|Convert and compute across binary, octal, decimal and hex
+bijoy-unicode-converter|Convert Bijoy legacy Bangla text to Unicode and back
+unit-converter|Convert length, mass, temperature, data size and CSS units
+date-time-calculator|Add, subtract and convert dates and time zones
+cron-expression-tool|Explain, build and preview cron schedules
+bigint-calculator|Calculate with arbitrarily large integers
+ieee754-inspector|Show float and double bit layouts
+chmod-calculator|Convert permissions between numeric and symbolic with umask
+color-tool|Convert colors, check WCAG contrast and build palettes
+css-visual-generator|Generate gradients, shadows, radius and flexbox or grid CSS
+mime-type-reference|Look up MIME types by extension
+http-header-reference|Look up HTTP headers and their meaning
+linux-command-reference|Search common Linux commands with examples
+user-agent-parser|Parse user-agent strings
+semver-calculator|Compare versions and test semver ranges
+glob-pattern-tester|Test glob patterns against paths
+gitignore-generator|Generate .gitignore files from templates
+git-command-builder|Build Git commands from a guided form
+dockerfile-generator|Generate Dockerfiles from options
+systemd-unit-generator|Generate systemd unit files
+kubernetes-manifest-generator|Generate Kubernetes manifests
+ci-pipeline-generator|Generate GitHub Actions and GitLab CI pipelines
+license-generator|Generate a license file with your name and year
+readme-generator|Generate a README from a template
+robots-sitemap-generator|Generate robots.txt and sitemap.xml
+env-file-tool|Parse, convert and compare .env files
+bookmarklet-generator|Turn JavaScript into a bookmarklet
+svg-optimizer|Clean and minify SVG
+image-tool|Resize, crop, compress, convert, watermark and build favicon and PWA icon packs with manifest
+pdf-toolkit|Merge, split, reorder, rotate, watermark and number PDF pages
+diagram-editor|Render Mermaid diagrams to SVG and PNG
+sqlite-viewer|Open and query a SQLite file locally
+random-picker|Pick random numbers, dice, coin flips and list items
+## social-media
+post-counter-preview|Count characters and words against platform limits with a preview
+hashtag-formatter|Turn phrases into clean hashtags and dedupe them
+post-text-formatter|Style text with Unicode fonts and keep line breaks
+emoji-search|Search and copy emoji by name
+thread-splitter|Split long text into numbered posts under a limit
+utm-link-builder|Build links with UTM parameters
+social-card-preview|Build and preview Open Graph and Twitter card tags
+content-calendar-planner|Plan posts and export CSV or ICS
+engagement-rate-calculator|Calculate engagement rate from counts
+ad-cost-calculator|Calculate CPM, CPC, CTR and ROAS
+link-in-bio-generator|Generate a static link-in-bio page
+social-privacy-checklist|Walk through platform privacy settings and export progress
+quote-card-maker|Create quote images on canvas
+profile-audit-scorecard|Score a profile against a checklist
+palette-extractor|Extract dominant colors from an image

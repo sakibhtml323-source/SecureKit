@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TOTP and HOTP Generator | SecureKit</title>
+<meta name="description" content="Generate and verify TOTP and HOTP one-time codes from a Base32 secret, with SHA-1, SHA-256 and SHA-512.">
+<link rel="canonical" href="https://sakibhtml323-source.github.io/SecureKit/tools/totp-generator.html">
+<meta property="og:title" content="TOTP and HOTP Generator | SecureKit"><meta property="og:description" content="Generate and verify TOTP and HOTP one-time codes from a Base32 secret, with SHA-1, SHA-256 and SHA-512."><meta property="og:type" content="website"><meta property="og:url" content="https://sakibhtml323-source.github.io/SecureKit/tools/totp-generator.html">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="TOTP and HOTP Generator | SecureKit"><meta name="twitter:description" content="Generate and verify TOTP and HOTP one-time codes from a Base32 secret, with SHA-1, SHA-256 and SHA-512.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/icons/icon-192.png"><link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/shell.css">
+<script src="../assets/js/theme.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "TOTP and HOTP Generator", "url": "https://sakibhtml323-source.github.io/SecureKit/tools/totp-generator.html", "description": "Generate and verify TOTP and HOTP one-time codes from a Base32 secret, with SHA-1, SHA-256 and SHA-512.", "applicationCategory": "SecurityApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sakibhtml323-source.github.io/SecureKit/"}, {"@type": "ListItem", "position": 2, "name": "Authentication", "item": "https://sakibhtml323-source.github.io/SecureKit/categories/authentication.html"}, {"@type": "ListItem", "position": 3, "name": "TOTP and HOTP Generator", "item": "https://sakibhtml323-source.github.io/SecureKit/tools/totp-generator.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my code not match my app?", "acceptedAnswer": {"@type": "Answer", "text": "The most common causes are a wrong digit count, period or algorithm, or a device clock that is off by more than 30 seconds."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+<aside class="side" id="side" aria-label="Sidebar"><a class="brand" href="../index.html"><img src="../assets/icons/favicon.svg" alt="" width="32" height="32"><span><strong>SecureKit</strong><small>Analyze · Detect · Fix · Stay Secure</small></span></a><nav aria-label="Main"><a href="../index.html"><span>Home</span></a><a href="../categories/index.html"><span>All categories</span></a></nav><div id="sk-fav" hidden><h2>Favorites</h2><nav class="lst" aria-label="Favorites"></nav></div><div id="sk-rec" hidden><h2>Recent</h2><nav class="lst" aria-label="Recent tools"></nav></div><h2>Categories</h2><nav aria-label="Categories"><a href="../categories/authentication.html"><span>Authentication</span><b>19</b></a><a href="../categories/encryption.html"><span>Encryption &amp; Hashing</span><b>16</b></a><a href="../categories/forensics.html"><span>Forensics</span><b>1</b></a><a href="../categories/developer-utilities.html"><span>Developer Utilities</span><b>4</b></a></nav><h2>Quick access</h2><nav aria-label="Quick access"><a href="../tools/password-strength.html"><span>Password Strength Checker</span></a><a href="../tools/password-breach-check.html"><span>Password Breach Check</span></a><a href="../tools/password-generator.html"><span>Secure Password Generator</span></a><a href="../tools/hash-generator.html"><span>Hash Generator</span></a></nav></aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="col">
+<header class="top"><button type="button" class="s menu" id="menu" aria-controls="side" aria-expanded="false" aria-label="Open menu">Menu</button><button type="button" class="s searchbtn" id="searchbtn">Search tools <kbd>Ctrl K</kbd></button><button type="button" class="s" id="themebtn">Theme</button></header>
+<main id="main" class="content">
+<nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../categories/authentication.html">Authentication</a> › TOTP and HOTP Generator</nav>
+<div class="toolhead" data-tool-id="totp-generator"><h1>TOTP and HOTP Generator</h1><p class="badges"><span>Runs locally</span><span>Free</span><span>No login</span></p></div>
+<p class="lead">Enter the Base32 secret from a 2FA setup to see the live code and the seconds remaining, or verify a code with one step of clock tolerance. Matches RFC 4226 and RFC 6238 test vectors.</p>
+<section class="card" aria-label="TOTP and HOTP Generator tool"><div data-tool="totp" data-show=""></div></section>
+<ul class="notes"><li>Anyone with the secret can generate your codes, so use this for testing and recovery planning, not as a replacement for your authenticator app.</li></ul>
+<div class="ad-slot ad-content"><!-- GOOGLE ADSENSE CODE GOES HERE AFTER APPROVAL --></div>
+<section><h2>FAQ</h2><h3>Why does my code not match my app?</h3><p>The most common causes are a wrong digit count, period or algorithm, or a device clock that is off by more than 30 seconds.</p></section>
+<section><h2>About this tool</h2><table class="info"><tbody><tr><th scope="row">Where it runs</th><td>In your browser (client-side)</td></tr><tr><th scope="row">Network requests</th><td>None</td></tr><tr><th scope="row">Stores your input</th><td>No</td></tr><tr><th scope="row">Analytics</th><td>None</td></tr><tr><th scope="row">Price and login</th><td>Free, no account needed</td></tr><tr><th scope="row">Version</th><td>1.0.0</td></tr></tbody></table></section>
+<section><h2>Related tools</h2><div class="tgrid"><a class="tcard c-authentication" href="../tools/otpauth-uri-builder.html"><span class="ico" aria-hidden="true">OL</span><strong>OTPAuth Link and QR Builder</strong><span class="desc">Build an otpauth:// link and QR code for authenticator apps, or parse an existing link into its settings.</span><em class="tag">Authentication</em></a><a class="tcard c-authentication" href="../tools/backup-code-generator.html"><span class="ico" aria-hidden="true">BC</span><strong>Backup Code Generator</strong><span class="desc">Generate printable sets of random one-time recovery codes without confusing characters like 0, O, 1 and I.</span><em class="tag">Authentication</em></a><a class="tcard c-authentication" href="../tools/mfa-method-advisor.html"><span class="ico" aria-hidden="true">MM</span><strong>MFA Method Advisor</strong><span class="desc">Get a ranked recommendation of multi-factor methods based on account sensitivity, phishing risk and your devices.</span><em class="tag">Authentication</em></a><a class="tcard c-encryption" href="../tools/hmac-generator.html"><span class="ico" aria-hidden="true">HG</span><strong>HMAC Generator</strong><span class="desc">Compute and verify HMAC-SHA signatures for messages and webhook payloads, with a constant-time comparison.</span><em class="tag">Encryption &amp; Hashing</em></a></div></section>
+
+</main>
+<footer class="foot"><nav aria-label="Footer"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../cookie-policy.html">Cookie Policy</a><a href="../disclaimer.html">Disclaimer</a><a href="../contact.html">Contact</a></nav><p>SecureKit v40.0.0 · Privacy-first browser-based security tools. © 2026 SecureKit. All rights reserved.</p></footer>
+</div></div>
+<noscript><p class="pad">Interactive tools require JavaScript. Navigation links still work.</p></noscript>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/tools/common.js"></script>
+<script src="../assets/js/tools/totp.js"></script>
+<script src="../assets/js/shell.js"></script>
+</body>
+</html>

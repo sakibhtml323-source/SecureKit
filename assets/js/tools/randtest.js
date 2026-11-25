@@ -1,0 +1,12 @@
+"use strict";
+function skErfc(x){const z=Math.abs(x),t=1/(1+.5*z),r=t*Math.exp(-z*z-1.26551223+t*(1.00002368+t*(.37409196+t*(.09678418+t*(-.18628806+t*(.27886807+t*(-1.13520398+t*(1.48851587+t*(-.82215223+t*.17087277)))))))));return x>=0?r:2-r}
+function skBitsOf(b){const bits=new Uint8Array(b.length*8);b.forEach((x,i)=>{for(let k=0;k<8;k++)bits[i*8+k]=(x>>(7-k))&1});return bits}
+function skMonobit(b){const bits=skBitsOf(b),n=bits.length;let s=0;for(const x of bits)s+=x?1:-1;return{n,p:skErfc(Math.abs(s)/Math.sqrt(n)/Math.SQRT2)}}
+function skRuns(b){const bits=skBitsOf(b),n=bits.length;let ones=0;for(const x of bits)ones+=x;const pi=ones/n;if(Math.abs(pi-.5)>=2/Math.sqrt(n))return{n,p:0};let v=1;for(let i=1;i<n;i++)if(bits[i]!==bits[i-1])v++;return{n,p:skErfc(Math.abs(v-2*n*pi*(1-pi))/(2*Math.sqrt(2*n)*pi*(1-pi)))}}
+function skChiBytes(b){const c=new Array(256).fill(0);for(const x of b)c[x]++;const e=b.length/256;let x2=0;for(const k of c)x2+=(k-e)*(k-e)/e;const df=255,z=(Math.cbrt(x2/df)-(1-2/(9*df)))/Math.sqrt(2/(9*df));return{n:b.length,chi:x2,p:.5*skErfc(z/Math.SQRT2)}}
+function skRandReport(b){if(b.length<1000)throw new Error("Provide at least 1000 bytes (8000 bits) for meaningful results.");const t=[["Monobit (bit balance)",skMonobit(b).p],["Runs (bit transitions)",skRuns(b).p],["Chi-square (byte frequencies)",skChiBytes(b).p]];return t.map(([n,p])=>({name:n,p,pass:p>=.01}))}
+T.randtest=r=>{const[l1,src]=sel("Data source",["Paste hex or text","Generate with crypto.getRandomValues"]),[l2,cnt]=num("Bytes to generate",1000,1000000,100000),inp=skArea("Data",5,"Hex bytes, or any text (UTF-8)"),o=skOut(r);
+r.prepend(l1,l2,skBox("Data",inp));
+r.append(btn("Run tests",()=>{try{let b;if(src.value.startsWith("Generate")){if(!(window.crypto&&crypto.getRandomValues))throw new Error("Web Crypto is not available.");const n=Math.min(1e6,Math.max(1000,parseInt(cnt.value,10)||1e5));b=new Uint8Array(n);for(let i=0;i<n;i+=65536)crypto.getRandomValues(b.subarray(i,Math.min(n,i+65536)))}
+else{const t=inp.value.trim();b=/^(0x)?[0-9a-f\s:]+$/i.test(t)&&t.replace(/[\s:]|^0x/gi,"").length%2===0?U.unhex(t):U.enc(inp.value)}
+const rep=skRandReport(b);o.set(rep.map(x=>(x.pass?"PASS ":"FAIL ")+x.name+"  p = "+x.p.toExponential(2)).join("\n"),b.length+" bytes tested. A p-value below 0.01 flags non-random behaviour. Passing these basic tests does not prove cryptographic quality.")}catch(e){o.err(skMsg(e))}}),btn("Clear",()=>{inp.value="";o.clear()},1))};

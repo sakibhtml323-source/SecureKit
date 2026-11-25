@@ -1,0 +1,159 @@
+{
+ "password-strength": [
+  "Strong random password scores 75+"
+ ],
+ "password-breach-check": [
+  "ui: breach network error message"
+ ],
+ "entropy-calculator": [
+  "Entropy formula"
+ ],
+ "crack-time": [
+  "Crack-time ordering and units"
+ ],
+ "pattern-detection": [
+  "Pattern detection"
+ ],
+ "repeat-detection": [
+  "Repeat detection"
+ ],
+ "common-passwords": [
+  "Common password lookup"
+ ],
+ "password-generator": [
+  "Generator classes and ambiguity option",
+  "ui: generator pool updates"
+ ],
+ "passphrase-generator": [
+  "ui: passphrase breakdown"
+ ],
+ "pin-generator": [
+  "PIN policy rejects repeated digits"
+ ],
+ "random-string": [
+  "ui: generator pool updates"
+ ],
+ "uuid-generator": [
+  "UUID v4 format"
+ ],
+ "hash-generator": [
+  "MD5 vectors",
+  "SHA-256 vector"
+ ],
+ "base64": [
+  "Base64 Unicode round trip"
+ ],
+ "qr-generator": [
+  "QR initialization",
+  "ui: qr hides wifi fields for URL"
+ ],
+ "hmac-generator": [
+  "enc: hmac RFC vectors",
+  "enc: mount hmac"
+ ],
+ "symmetric-encrypt-decrypt": [
+  "enc: AES-GCM round trip and tamper detection",
+  "enc: mount symenc"
+ ],
+ "key-pair-generator": [
+  "enc: key pair generation and PEM/JWK round trip",
+  "enc: mount keypair"
+ ],
+ "rsa-oaep-tool": [
+  "enc: RSA-OAEP encrypt and decrypt",
+  "enc: mount rsaoaep"
+ ],
+ "digital-signature-tool": [
+  "enc: signatures sign/verify and reject tampering",
+  "enc: mount signature"
+ ],
+ "ecdh-key-exchange": [
+  "enc: ECDH both sides derive same secret",
+  "enc: mount ecdh"
+ ],
+ "jwk-pem-converter": [
+  "enc: JWK PEM conversion round trip",
+  "enc: mount jwkpem"
+ ],
+ "key-derivation-tool": [
+  "enc: PBKDF2 and HKDF vectors",
+  "enc: mount kdf"
+ ],
+ "hash-identifier": [
+  "enc: hash identifier",
+  "enc: mount hashid"
+ ],
+ "crc-checksum-calculator": [
+  "enc: CRC and Adler vectors",
+  "enc: mount crc"
+ ],
+ "classical-cipher-tool": [
+  "enc: classical ciphers",
+  "enc: mount classic"
+ ],
+ "xor-cipher-tool": [
+  "enc: XOR cipher and single-byte brute force",
+  "enc: mount xorcipher"
+ ],
+ "ssh-key-fingerprint": [
+  "enc: SSH fingerprint plumbing",
+  "enc: mount sshfp"
+ ],
+ "merkle-tree-builder": [
+  "enc: Merkle tree root and proof",
+  "enc: mount merkle"
+ ],
+ "randomness-tester": [
+  "enc: randomness tests",
+  "enc: mount randtest"
+ ],
+ "totp-generator": [
+  "auth: base32 and HOTP/TOTP RFC vectors",
+  "ui: totp generates a code",
+  "auth: mount totp"
+ ],
+ "otpauth-uri-builder": [
+  "auth: otpauth build and parse",
+  "ui: otpauth builds a link",
+  "auth: mount otpauth"
+ ],
+ "password-policy-checker": [
+  "auth: password policy",
+  "ui: policy checker runs",
+  "auth: mount policy"
+ ],
+ "backup-code-generator": [
+  "auth: backup codes",
+  "ui: backup codes generate",
+  "auth: mount backup"
+ ],
+ "password-reuse-checker": [
+  "auth: reuse and similarity",
+  "auth: mount reuse"
+ ],
+ "login-lockout-calculator": [
+  "auth: lockout calculator",
+  "ui: lockout calculator runs",
+  "auth: mount lockout"
+ ],
+ "email-alias-generator": [
+  "auth: email aliases",
+  "ui: email aliases generate",
+  "auth: mount alias"
+ ],
+ "password-csv-auditor": [
+  "auth: password CSV audit",
+  "ui: csv audit runs",
+  "auth: mount csvaudit"
+ ],
+ "mfa-method-advisor": [
+  "auth: MFA advisor",
+  "ui: mfa advisor runs",
+  "auth: mount mfa"
+ ],
+ "hash-wordlist-matcher": [
+  "auth: hash wordlist matcher",
+  "ui: hash wordlist matcher runs",
+  "auth: mount wordlist"
+ ]
+}

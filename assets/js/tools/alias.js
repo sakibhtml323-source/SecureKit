@@ -1,0 +1,10 @@
+"use strict";
+function skSplitEmail(e){const m=/^([^@\s]+)@([^@\s]+\.[^@\s]+)$/.exec(String(e).trim());if(!m)throw new Error("Enter a valid email address.");return{local:m[1],domain:m[2]}}
+function skPlusAlias(email,tag){const{local,domain}=skSplitEmail(email),t=String(tag).trim().toLowerCase().replace(/[^a-z0-9._-]+/g,"-").replace(/^-+|-+$/g,"");if(!t)throw new Error("Enter at least one tag.");return local.split("+")[0]+"+"+t+"@"+domain}
+function skDotVariants(email,limit){const{local,domain}=skSplitEmail(email),base=local.split("+")[0].replace(/\./g,"");if(base.length<2)throw new Error("The name part is too short for dot variants.");const n=base.length-1,total=Math.pow(2,n),out=[];
+for(let m=0;m<Math.min(total,limit||200);m++){let s=base[0];for(let i=0;i<n;i++){if(m&(1<<i))s+=".";s+=base[i+1]}out.push(s+"@"+domain)}return{total,list:out}}
+T.alias=r=>{const em=el("input",{type:"text",autocomplete:"off",placeholder:"you@example.com"}),tags=el("input",{type:"text",autocomplete:"off",placeholder:"shop, newsletter, bank"}),[l1,mode]=sel("Style",["Plus tags","Dot variants (Gmail-style)"]),o=skOut(r);em.setAttribute("aria-label","Your email");tags.setAttribute("aria-label","Tags");
+const tb=skBox("Tags, comma separated (one alias each)",tags),sync=()=>{tb.hidden=!mode.value.startsWith("Plus")};mode.onchange=sync;
+r.prepend(l1,skBox("Your email address",em),tb);sync();
+r.append(btn("Generate aliases",()=>{try{if(mode.value.startsWith("Plus")){const L=tags.value.split(",").map(x=>x.trim()).filter(Boolean);if(!L.length)throw new Error("Enter at least one tag.");o.set(L.map(t=>skPlusAlias(em.value,t)).join("\n"),"Mail to these aliases arrives in your normal inbox on providers that support plus addressing. Some sites reject the + sign.")}
+else{const x=skDotVariants(em.value,200);o.set(x.list.join("\n"),x.total.toLocaleString()+" variants exist"+(x.total>200?"; showing the first 200":"")+". Gmail ignores dots in the name, so all reach one inbox; other providers treat them as different addresses.")}}catch(e){o.err(skMsg(e))}}),btn("Clear",()=>{em.value="";tags.value="";o.clear()},1))};

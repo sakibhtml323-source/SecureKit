@@ -1,0 +1,7 @@
+{
+ "title": "Contact",
+ "description": "Contact the SecureKit site owner by email.",
+ "h1": "Contact",
+ "body": "<p>Email: <a href=\"mailto:{{email}}\">{{email}}</a></p>\n<p>There is no contact form because a form needs a backend or form service. Please do not email passwords or other secrets.</p>",
+ "note": "This is general informational content and should be reviewed for your specific business and jurisdiction. It is not legal advice."
+}

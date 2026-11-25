@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{basetag}}<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{robots}}<link rel="canonical" href="{{canonical}}">
+<meta property="og:title" content="{{title}}"><meta property="og:description" content="{{description}}"><meta property="og:type" content="website"><meta property="og:url" content="{{canonical}}">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{{title}}"><meta name="twitter:description" content="{{description}}">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="{{base}}assets/icons/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{{base}}assets/icons/icon-192.png"><link rel="manifest" href="{{base}}site.webmanifest">
+<link rel="stylesheet" href="{{base}}assets/css/style.css"><link rel="stylesheet" href="{{base}}assets/css/shell.css">
+<script src="{{base}}assets/js/theme.js"></script>
+{{jsonld}}</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+<aside class="side" id="side" aria-label="Sidebar">{{sidebar}}</aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="col">
+<header class="top"><button type="button" class="s menu" id="menu" aria-controls="side" aria-expanded="false" aria-label="Open menu">Menu</button><button type="button" class="s searchbtn" id="searchbtn">Search tools <kbd>Ctrl K</kbd></button><button type="button" class="s" id="themebtn">Theme</button></header>
+<main id="main" class="content">
+{{content}}
+</main>
+<footer class="foot">{{footer}}</footer>
+</div></div>
+<noscript><p class="pad">Interactive tools require JavaScript. Navigation links still work.</p></noscript>
+{{scripts}}</body>
+</html>

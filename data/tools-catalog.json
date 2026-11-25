@@ -1,0 +1,1605 @@
+{
+ "total": 215,
+ "tools": [
+  {
+   "id": "password-strength",
+   "name": "Password Strength",
+   "category": "authentication",
+   "status": "live",
+   "does": "Score a password with entropy, patterns, repeats and common-password checks"
+  },
+  {
+   "id": "password-breach-check",
+   "name": "Password Breach Check",
+   "category": "authentication",
+   "status": "live",
+   "does": "Check a password against HIBP using a 5-character hash prefix"
+  },
+  {
+   "id": "entropy-calculator",
+   "name": "Entropy Calculator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Show character-pool and effective entropy in bits"
+  },
+  {
+   "id": "crack-time",
+   "name": "Crack Time",
+   "category": "authentication",
+   "status": "live",
+   "does": "Estimate online, fast-hash and slow-hash crack times"
+  },
+  {
+   "id": "pattern-detection",
+   "name": "Pattern Detection",
+   "category": "authentication",
+   "status": "live",
+   "does": "Find sequences, keyboard walks, year suffixes, substitutions"
+  },
+  {
+   "id": "repeat-detection",
+   "name": "Repeat Detection",
+   "category": "authentication",
+   "status": "live",
+   "does": "Find repeated characters and repeated blocks"
+  },
+  {
+   "id": "common-passwords",
+   "name": "Common Passwords",
+   "category": "authentication",
+   "status": "live",
+   "does": "Match against a local list of very common passwords"
+  },
+  {
+   "id": "password-generator",
+   "name": "Password Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Generate random passwords with selectable character sets"
+  },
+  {
+   "id": "passphrase-generator",
+   "name": "Passphrase Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Generate multi-word passphrases with entropy breakdown"
+  },
+  {
+   "id": "pin-generator",
+   "name": "PIN Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Generate PINs that avoid repeats and predictable runs"
+  },
+  {
+   "id": "totp-generator",
+   "name": "TOTP Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Generate and verify TOTP and HOTP codes from a base32 secret"
+  },
+  {
+   "id": "otpauth-uri-builder",
+   "name": "OTPAuth Uri Builder",
+   "category": "authentication",
+   "status": "live",
+   "does": "Build otpauth:// links for authenticator apps, ready for QR"
+  },
+  {
+   "id": "password-policy-checker",
+   "name": "Password Policy Checker",
+   "category": "authentication",
+   "status": "live",
+   "does": "Test passwords against a custom length and character policy"
+  },
+  {
+   "id": "backup-code-generator",
+   "name": "Backup Code Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Create printable one-time recovery code sets"
+  },
+  {
+   "id": "password-reuse-checker",
+   "name": "Password Reuse Checker",
+   "category": "authentication",
+   "status": "live",
+   "does": "Compare several passwords locally for reuse and similarity"
+  },
+  {
+   "id": "login-lockout-calculator",
+   "name": "Login Lockout Calculator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Calculate brute-force exposure for a lockout and rate-limit policy"
+  },
+  {
+   "id": "email-alias-generator",
+   "name": "Email Alias Generator",
+   "category": "authentication",
+   "status": "live",
+   "does": "Generate plus-address and dot-variant aliases for sign-ups"
+  },
+  {
+   "id": "password-csv-auditor",
+   "name": "Password CSV Auditor",
+   "category": "authentication",
+   "status": "live",
+   "does": "Audit an exported password CSV for weak, reused and old entries"
+  },
+  {
+   "id": "mfa-method-advisor",
+   "name": "MFA Method Advisor",
+   "category": "authentication",
+   "status": "live",
+   "does": "Recommend a multi-factor method from a short questionnaire"
+  },
+  {
+   "id": "hash-generator",
+   "name": "Hash Generator",
+   "category": "encryption",
+   "status": "live",
+   "does": "Hash text with MD5 and the SHA family"
+  },
+  {
+   "id": "hmac-generator",
+   "name": "HMAC Generator",
+   "category": "encryption",
+   "status": "live",
+   "does": "Compute and verify HMAC signatures, including webhook signatures"
+  },
+  {
+   "id": "symmetric-encrypt-decrypt",
+   "name": "Symmetric Encrypt Decrypt",
+   "category": "encryption",
+   "status": "live",
+   "does": "Encrypt and decrypt text or files with AES-256-GCM and a password, fully offline"
+  },
+  {
+   "id": "key-pair-generator",
+   "name": "Key Pair Generator",
+   "category": "encryption",
+   "status": "live",
+   "does": "Generate RSA, EC, Ed25519 and X25519 key pairs as PEM or JWK"
+  },
+  {
+   "id": "rsa-oaep-tool",
+   "name": "RSA OAEP Tool",
+   "category": "encryption",
+   "status": "live",
+   "does": "Encrypt and decrypt data with RSA-OAEP keys"
+  },
+  {
+   "id": "digital-signature-tool",
+   "name": "Digital Signature Tool",
+   "category": "encryption",
+   "status": "live",
+   "does": "Sign and verify data with RSA-PSS, ECDSA or Ed25519"
+  },
+  {
+   "id": "ecdh-key-exchange",
+   "name": "ECDH Key Exchange",
+   "category": "encryption",
+   "status": "live",
+   "does": "Derive a shared secret from two EC keys"
+  },
+  {
+   "id": "jwk-pem-converter",
+   "name": "JWK PEM Converter",
+   "category": "encryption",
+   "status": "live",
+   "does": "Convert keys between JWK and PEM"
+  },
+  {
+   "id": "key-derivation-tool",
+   "name": "Key Derivation Tool",
+   "category": "encryption",
+   "status": "live",
+   "does": "Derive keys with PBKDF2 or HKDF and time the cost"
+  },
+  {
+   "id": "hash-identifier",
+   "name": "Hash Identifier",
+   "category": "encryption",
+   "status": "live",
+   "does": "Identify the likely hash type of a string"
+  },
+  {
+   "id": "bcrypt-tool",
+   "name": "bcrypt Tool",
+   "category": "encryption",
+   "status": "planned",
+   "does": "Create and verify bcrypt hashes"
+  },
+  {
+   "id": "argon2-tool",
+   "name": "Argon2 Tool",
+   "category": "encryption",
+   "status": "planned",
+   "does": "Create and verify Argon2 hashes"
+  },
+  {
+   "id": "crc-checksum-calculator",
+   "name": "CRC Checksum Calculator",
+   "category": "encryption",
+   "status": "live",
+   "does": "Compute CRC32, CRC16 and Adler-32 checksums"
+  },
+  {
+   "id": "classical-cipher-tool",
+   "name": "Classical Cipher Tool",
+   "category": "encryption",
+   "status": "live",
+   "does": "Apply Caesar, ROT13, Vigenere and Atbash ciphers"
+  },
+  {
+   "id": "xor-cipher-tool",
+   "name": "XOR Cipher Tool",
+   "category": "encryption",
+   "status": "live",
+   "does": "XOR text or bytes with a key and brute-force single-byte keys"
+  },
+  {
+   "id": "openpgp-tool",
+   "name": "OpenPGP Tool",
+   "category": "encryption",
+   "status": "planned",
+   "does": "Generate PGP keys, encrypt, decrypt, sign and verify"
+  },
+  {
+   "id": "ssh-key-fingerprint",
+   "name": "SSH Key Fingerprint",
+   "category": "encryption",
+   "status": "live",
+   "does": "Compute SHA-256 and MD5 fingerprints of SSH public keys"
+  },
+  {
+   "id": "merkle-tree-builder",
+   "name": "Merkle Tree Builder",
+   "category": "encryption",
+   "status": "live",
+   "does": "Build a Merkle tree and root hash from a list"
+  },
+  {
+   "id": "randomness-tester",
+   "name": "Randomness Tester",
+   "category": "encryption",
+   "status": "live",
+   "does": "Run basic statistical randomness tests on bytes"
+  },
+  {
+   "id": "mnemonic-validator",
+   "name": "Mnemonic Validator",
+   "category": "encryption",
+   "status": "planned",
+   "does": "Validate a BIP-39 phrase checksum locally"
+  },
+  {
+   "id": "security-headers-analyzer",
+   "name": "Security Headers Analyzer",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Grade pasted HTTP response headers for security gaps"
+  },
+  {
+   "id": "csp-analyzer",
+   "name": "CSP Analyzer",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Parse a Content-Security-Policy and flag weaknesses"
+  },
+  {
+   "id": "csp-builder",
+   "name": "CSP Builder",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Build a Content-Security-Policy from selected sources"
+  },
+  {
+   "id": "cookie-attribute-analyzer",
+   "name": "Cookie Attribute Analyzer",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Analyze Set-Cookie attributes for Secure, HttpOnly, SameSite"
+  },
+  {
+   "id": "cors-policy-tester",
+   "name": "CORS Policy Tester",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Simulate a CORS check for an origin, method and headers"
+  },
+  {
+   "id": "permissions-policy-builder",
+   "name": "Permissions Policy Builder",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Build a Permissions-Policy header"
+  },
+  {
+   "id": "sri-csp-hash-generator",
+   "name": "SRI CSP Hash Generator",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Create SRI integrity values and CSP script hashes"
+  },
+  {
+   "id": "html-sanitizer",
+   "name": "HTML Sanitizer",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Sanitize untrusted HTML and preview the result"
+  },
+  {
+   "id": "output-encoding-tool",
+   "name": "Output Encoding Tool",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Escape strings for HTML, attribute, JS, URL, CSS and SQL contexts"
+  },
+  {
+   "id": "url-inspector",
+   "name": "URL Inspector",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Break a URL into parts and flag suspicious traits and look-alike domains"
+  },
+  {
+   "id": "security-txt-generator",
+   "name": "Security TXT Generator",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Generate a security.txt file"
+  },
+  {
+   "id": "x509-decoder",
+   "name": "X.509 Decoder",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Decode certificates and CSRs and compute pin hashes"
+  },
+  {
+   "id": "tls-cipher-suite-lookup",
+   "name": "TLS Cipher Suite Lookup",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Look up TLS cipher suites and their strength"
+  },
+  {
+   "id": "csp-report-parser",
+   "name": "CSP Report Parser",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Parse CSP violation reports into readable rows"
+  },
+  {
+   "id": "html-security-linter",
+   "name": "HTML Security Linter",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Scan HTML for mixed content, unsafe links, inline handlers, missing SRI"
+  },
+  {
+   "id": "iframe-sandbox-builder",
+   "name": "Iframe Sandbox Builder",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Build an iframe sandbox attribute with explanations"
+  },
+  {
+   "id": "web-server-config-generator",
+   "name": "Web Server Config Generator",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Generate nginx, Apache and Netlify config for headers, TLS and redirects"
+  },
+  {
+   "id": "http-message-parser",
+   "name": "HTTP Message Parser",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Parse raw HTTP requests, responses and captured webhook payloads into tables"
+  },
+  {
+   "id": "browser-security-checker",
+   "name": "Browser Security Checker",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Test this browser for secure context, WebCrypto, passkeys and permissions"
+  },
+  {
+   "id": "cache-control-tool",
+   "name": "Cache Control Tool",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Explain and build Cache-Control headers"
+  },
+  {
+   "id": "web-security-checklist",
+   "name": "Web Security Checklist",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Track a web app security checklist and export progress"
+  },
+  {
+   "id": "stride-threat-modeler",
+   "name": "STRIDE Threat Modeler",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Build a STRIDE threat model and export it"
+  },
+  {
+   "id": "cvss-calculator",
+   "name": "CVSS Calculator",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Calculate CVSS v3.1 and v4.0 scores"
+  },
+  {
+   "id": "owasp-reference",
+   "name": "OWASP Reference",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Search OWASP web, API and LLM risk lists"
+  },
+  {
+   "id": "same-origin-checker",
+   "name": "Same Origin Checker",
+   "category": "web-security",
+   "status": "planned",
+   "does": "Tell whether two URLs are same-origin or same-site"
+  },
+  {
+   "id": "ip-address-analyzer",
+   "name": "IP Address Analyzer",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Parse IPv4 and IPv6, convert bases, classify private and reserved ranges"
+  },
+  {
+   "id": "cidr-calculator",
+   "name": "CIDR Calculator",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Calculate subnets, masks, ranges and split networks"
+  },
+  {
+   "id": "ip-range-to-cidr",
+   "name": "IP Range To CIDR",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Convert IP ranges to minimal CIDR lists and back"
+  },
+  {
+   "id": "mac-address-tool",
+   "name": "MAC Address Tool",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Parse, format and identify MAC addresses"
+  },
+  {
+   "id": "port-service-reference",
+   "name": "Port Service Reference",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Look up common ports, services and risks"
+  },
+  {
+   "id": "firewall-rule-generator",
+   "name": "Firewall Rule Generator",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Generate iptables, nftables, ufw and Windows rules"
+  },
+  {
+   "id": "firewall-rule-explainer",
+   "name": "Firewall Rule Explainer",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Explain firewall rules in plain English"
+  },
+  {
+   "id": "dns-record-parser",
+   "name": "DNS Record Parser",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Parse zone files and dig output into rows"
+  },
+  {
+   "id": "email-auth-record-tool",
+   "name": "Email Auth Record Tool",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Parse and build SPF, DKIM and DMARC records"
+  },
+  {
+   "id": "reverse-dns-name-generator",
+   "name": "Reverse DNS Name Generator",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Create in-addr.arpa and ip6.arpa names from IPs"
+  },
+  {
+   "id": "har-file-analyzer",
+   "name": "HAR File Analyzer",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Analyze HAR files for secrets, third parties and insecure requests"
+  },
+  {
+   "id": "wireguard-config-builder",
+   "name": "WireGuard Config Builder",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Generate WireGuard keys and config files"
+  },
+  {
+   "id": "ssh-config-builder",
+   "name": "SSH Config Builder",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Build an ssh_config file"
+  },
+  {
+   "id": "packet-header-decoder",
+   "name": "Packet Header Decoder",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Decode IPv4, TCP and UDP header hex"
+  },
+  {
+   "id": "nmap-command-builder",
+   "name": "Nmap Command Builder",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Build Nmap commands from options with explanations"
+  },
+  {
+   "id": "cidr-membership-checker",
+   "name": "CIDR Membership Checker",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Match many IPs against a CIDR blocklist"
+  },
+  {
+   "id": "detection-rule-builder",
+   "name": "Detection Rule Builder",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Build Snort, Suricata and Sigma rule templates"
+  },
+  {
+   "id": "network-output-parser",
+   "name": "Network Output Parser",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Parse ping, traceroute, netstat and nslookup output"
+  },
+  {
+   "id": "transfer-time-calculator",
+   "name": "Transfer Time Calculator",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Calculate transfer time from size and bandwidth"
+  },
+  {
+   "id": "websocket-tester",
+   "name": "WebSocket Tester",
+   "category": "network-security",
+   "status": "planned",
+   "does": "Connect to a WebSocket URL and send test messages from the browser"
+  },
+  {
+   "id": "regex-tester",
+   "name": "Regex Tester",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Test and replace with regular expressions and explain matches"
+  },
+  {
+   "id": "redos-checker",
+   "name": "Redos Checker",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Detect regex patterns prone to catastrophic backtracking"
+  },
+  {
+   "id": "secret-scanner",
+   "name": "Secret Scanner",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Find API keys, tokens and weak values in pasted text and .env files"
+  },
+  {
+   "id": "insecure-code-pattern-scanner",
+   "name": "Insecure Code Pattern Scanner",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Flag dangerous patterns in JS, Python, PHP and SQL snippets"
+  },
+  {
+   "id": "manifest-risk-scanner",
+   "name": "Manifest Risk Scanner",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Check package manifests for unpinned versions and risky scripts"
+  },
+  {
+   "id": "license-detector",
+   "name": "License Detector",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Identify open-source licenses from text"
+  },
+  {
+   "id": "sbom-generator",
+   "name": "SBOM Generator",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Create a CycloneDX SBOM from a dependency list"
+  },
+  {
+   "id": "code-metrics",
+   "name": "Code Metrics",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Count lines and estimate complexity"
+  },
+  {
+   "id": "iac-security-linter",
+   "name": "IaC Security Linter",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Lint Dockerfile, Kubernetes, GitHub Actions and Terraform security"
+  },
+  {
+   "id": "shell-command-explainer",
+   "name": "Shell Command Explainer",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Explain a shell command and flag dangerous flags"
+  },
+  {
+   "id": "typosquat-package-checker",
+   "name": "Typosquat Package Checker",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Compare package names with popular names for look-alikes"
+  },
+  {
+   "id": "commit-message-linter",
+   "name": "Commit Message Linter",
+   "category": "code-analysis",
+   "status": "planned",
+   "does": "Check commit messages against Conventional Commits"
+  },
+  {
+   "id": "pii-redactor",
+   "name": "PII Redactor",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Detect and mask personal data in text and JSON"
+  },
+  {
+   "id": "shamir-secret-sharing",
+   "name": "Shamir Secret Sharing",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Split and recombine a secret into shares"
+  },
+  {
+   "id": "data-classifier",
+   "name": "Data Classifier",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Suggest sensitivity labels for field names and samples"
+  },
+  {
+   "id": "csv-anonymizer",
+   "name": "CSV Anonymizer",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Mask, hash or generalize CSV columns"
+  },
+  {
+   "id": "k-anonymity-checker",
+   "name": "K Anonymity Checker",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Compute k-anonymity for chosen CSV columns"
+  },
+  {
+   "id": "mock-data-generator",
+   "name": "Mock Data Generator",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Generate mock JSON, REST and GraphQL payloads and fake records from a custom schema"
+  },
+  {
+   "id": "identifier-validator",
+   "name": "Identifier Validator",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Validate card, IBAN, ISBN and VIN check digits"
+  },
+  {
+   "id": "retention-schedule-builder",
+   "name": "Retention Schedule Builder",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Build a data retention schedule table"
+  },
+  {
+   "id": "data-inventory-builder",
+   "name": "Data Inventory Builder",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Build a data inventory and processing map"
+  },
+  {
+   "id": "text-watermarker",
+   "name": "Text Watermarker",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Embed and read invisible zero-width text watermarks"
+  },
+  {
+   "id": "differential-privacy-calculator",
+   "name": "Differential Privacy Calculator",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Calculate Laplace noise for a chosen epsilon"
+  },
+  {
+   "id": "url-tracking-cleaner",
+   "name": "URL Tracking Cleaner",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Strip tracking parameters from links"
+  },
+  {
+   "id": "risk-register-builder",
+   "name": "Risk Register Builder",
+   "category": "data-security",
+   "status": "planned",
+   "does": "Build a risk register with a likelihood-impact matrix"
+  },
+  {
+   "id": "jwt-tool",
+   "name": "JWT Tool",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Decode, verify, sign and audit JWTs locally; secret keys never leave the device"
+  },
+  {
+   "id": "oauth-request-builder",
+   "name": "OAuth Request Builder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Build OAuth and OIDC authorization requests with PKCE"
+  },
+  {
+   "id": "openapi-security-analyzer",
+   "name": "Openapi Security Analyzer",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Review an OpenAPI file for security gaps"
+  },
+  {
+   "id": "http-request-builder",
+   "name": "HTTP Request Builder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Build requests and convert curl to fetch, axios, Python, Go, Rust and PHP"
+  },
+  {
+   "id": "json-schema-validator",
+   "name": "JSON Schema Validator",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Validate JSON against a JSON Schema"
+  },
+  {
+   "id": "rate-limit-calculator",
+   "name": "Rate Limit Calculator",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Plan token-bucket and leaky-bucket limits"
+  },
+  {
+   "id": "graphql-query-analyzer",
+   "name": "GraphQL Query Analyzer",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Measure GraphQL depth and complexity and flag risks"
+  },
+  {
+   "id": "saml-assertion-decoder",
+   "name": "SAML Assertion Decoder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Decode SAML requests and responses"
+  },
+  {
+   "id": "http-status-reference",
+   "name": "HTTP Status Reference",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Look up HTTP status codes"
+  },
+  {
+   "id": "auth-header-builder",
+   "name": "Auth Header Builder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Build and decode Basic and Bearer authorization headers"
+  },
+  {
+   "id": "aws-sigv4-signer",
+   "name": "AWS SigV4 Signer",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Sign requests with AWS Signature V4 locally"
+  },
+  {
+   "id": "problem-details-builder",
+   "name": "Problem Details Builder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Build RFC 9457 problem-details responses"
+  },
+  {
+   "id": "binary-serialization-decoder",
+   "name": "Binary Serialization Decoder",
+   "category": "api-security",
+   "status": "planned",
+   "does": "Decode raw Protobuf, MessagePack and CBOR"
+  },
+  {
+   "id": "file-signature-identifier",
+   "name": "File Signature Identifier",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Identify file types from magic bytes"
+  },
+  {
+   "id": "hex-viewer-strings",
+   "name": "Hex Viewer Strings",
+   "category": "forensics",
+   "status": "planned",
+   "does": "View a hex dump and extract strings from a file"
+  },
+  {
+   "id": "metadata-tool",
+   "name": "Metadata Tool",
+   "category": "forensics",
+   "status": "planned",
+   "does": "View and remove metadata (GPS, camera, dates) from images and PDFs"
+  },
+  {
+   "id": "timestamp-converter",
+   "name": "Timestamp Converter",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Convert Unix, Windows FILETIME and WebKit timestamps"
+  },
+  {
+   "id": "log-analyzer",
+   "name": "Log Analyzer",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Stream, filter and summarize large nginx, Apache and auth logs and flag anomalies"
+  },
+  {
+   "id": "email-header-analyzer",
+   "name": "Email Header Analyzer",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Trace routes and SPF, DKIM and DMARC results in headers"
+  },
+  {
+   "id": "yara-lite-matcher",
+   "name": "YARA Lite Matcher",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Test YARA-style string rules on text and files"
+  },
+  {
+   "id": "hash-wordlist-matcher",
+   "name": "Hash Wordlist Matcher",
+   "category": "forensics",
+   "status": "live",
+   "does": "Match unsalted hashes against your own wordlist to audit weak passwords and solve CTF tasks"
+  },
+  {
+   "id": "ioc-extractor",
+   "name": "IOC Extractor",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Extract IPs, domains, URLs and hashes from text"
+  },
+  {
+   "id": "security-report-builder",
+   "name": "Security Report Builder",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Build incident and vulnerability reports"
+  },
+  {
+   "id": "steganography-tool",
+   "name": "Steganography Tool",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Hide and reveal password-protected text inside PNG images"
+  },
+  {
+   "id": "pdf-risk-inspector",
+   "name": "PDF Risk Inspector",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Scan a PDF for scripts and embedded files"
+  },
+  {
+   "id": "archive-inspector",
+   "name": "Archive Inspector",
+   "category": "forensics",
+   "status": "planned",
+   "does": "List archive contents and flag zip-bomb traits"
+  },
+  {
+   "id": "qr-decoder",
+   "name": "QR Decoder",
+   "category": "forensics",
+   "status": "planned",
+   "does": "Decode QR images and flag risky payloads"
+  },
+  {
+   "id": "uuid-generator",
+   "name": "UUID Generator",
+   "category": "developer-utilities",
+   "status": "live",
+   "does": "Generate UUID v4 values in bulk"
+  },
+  {
+   "id": "random-string",
+   "name": "Random String",
+   "category": "developer-utilities",
+   "status": "live",
+   "does": "Generate random strings and tokens"
+  },
+  {
+   "id": "base64",
+   "name": "Base64",
+   "category": "developer-utilities",
+   "status": "live",
+   "does": "Encode and decode Base64 with Unicode"
+  },
+  {
+   "id": "qr-generator",
+   "name": "QR Generator",
+   "category": "developer-utilities",
+   "status": "live",
+   "does": "Generate QR codes for text, URLs, Wi-Fi, email and phone"
+  },
+  {
+   "id": "json-formatter",
+   "name": "JSON Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format, minify, sort and validate JSON"
+  },
+  {
+   "id": "xml-formatter",
+   "name": "XML Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and validate XML"
+  },
+  {
+   "id": "yaml-formatter",
+   "name": "YAML Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and validate YAML"
+  },
+  {
+   "id": "toml-formatter",
+   "name": "TOML Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and validate TOML"
+  },
+  {
+   "id": "sql-formatter",
+   "name": "SQL Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format SQL"
+  },
+  {
+   "id": "html-formatter",
+   "name": "HTML Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and minify HTML"
+  },
+  {
+   "id": "css-formatter",
+   "name": "CSS Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and minify CSS"
+  },
+  {
+   "id": "js-formatter",
+   "name": "JS Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format and minify JavaScript"
+  },
+  {
+   "id": "graphql-formatter",
+   "name": "GraphQL Formatter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Format GraphQL"
+  },
+  {
+   "id": "data-format-converter",
+   "name": "Data Format Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert between JSON, YAML, TOML, XML and CSV"
+  },
+  {
+   "id": "csv-spreadsheet-viewer",
+   "name": "CSV Spreadsheet Viewer",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "View, sort, filter and export CSV and XLSX"
+  },
+  {
+   "id": "query-tester",
+   "name": "Query Tester",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Run JSONPath, XPath and CSS selectors on pasted data"
+  },
+  {
+   "id": "diff-viewer",
+   "name": "Diff Viewer",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Compare two texts or JSON files side by side"
+  },
+  {
+   "id": "markdown-previewer",
+   "name": "Markdown Previewer",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Preview Markdown live and export HTML or PDF"
+  },
+  {
+   "id": "html-markdown-converter",
+   "name": "HTML Markdown Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert HTML to Markdown and back"
+  },
+  {
+   "id": "markdown-table-generator",
+   "name": "Markdown Table Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Edit tables visually and export Markdown or HTML"
+  },
+  {
+   "id": "html-table-extractor",
+   "name": "HTML Table Extractor",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Extract tables from pasted HTML into CSV"
+  },
+  {
+   "id": "json-to-types",
+   "name": "JSON To Types",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate TypeScript, Go, Python types and SQL tables from JSON"
+  },
+  {
+   "id": "json-schema-generator",
+   "name": "JSON Schema Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Infer a JSON Schema from sample JSON"
+  },
+  {
+   "id": "text-case-converter",
+   "name": "Text Case Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert case styles and make URL slugs"
+  },
+  {
+   "id": "lorem-ipsum-generator",
+   "name": "Lorem Ipsum Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate placeholder text"
+  },
+  {
+   "id": "line-processor",
+   "name": "Line Processor",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Sort, dedupe, reverse, trim and number lines"
+  },
+  {
+   "id": "url-encoder-query-builder",
+   "name": "URL Encoder Query Builder",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Percent-encode text and parse or build query strings"
+  },
+  {
+   "id": "unicode-inspector",
+   "name": "Unicode Inspector",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Inspect code points and normalization, find or strip invisible characters"
+  },
+  {
+   "id": "text-encoding-converter",
+   "name": "Text Encoding Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert text to binary, hex, octal, Morse and NATO"
+  },
+  {
+   "id": "base-n-encoder",
+   "name": "Base N Encoder",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Encode and decode Base32, Base58, Base85 and Hex"
+  },
+  {
+   "id": "number-format-converter",
+   "name": "Number Format Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert Roman numerals, number words and Bengali digits"
+  },
+  {
+   "id": "number-base-converter",
+   "name": "Number Base Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert and compute across binary, octal, decimal and hex"
+  },
+  {
+   "id": "bijoy-unicode-converter",
+   "name": "Bijoy Unicode Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert Bijoy legacy Bangla text to Unicode and back"
+  },
+  {
+   "id": "unit-converter",
+   "name": "Unit Converter",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert length, mass, temperature, data size and CSS units"
+  },
+  {
+   "id": "date-time-calculator",
+   "name": "Date Time Calculator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Add, subtract and convert dates and time zones"
+  },
+  {
+   "id": "cron-expression-tool",
+   "name": "Cron Expression Tool",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Explain, build and preview cron schedules"
+  },
+  {
+   "id": "bigint-calculator",
+   "name": "BigInt Calculator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Calculate with arbitrarily large integers"
+  },
+  {
+   "id": "ieee754-inspector",
+   "name": "IEEE 754 Inspector",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Show float and double bit layouts"
+  },
+  {
+   "id": "chmod-calculator",
+   "name": "chmod Calculator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert permissions between numeric and symbolic with umask"
+  },
+  {
+   "id": "color-tool",
+   "name": "Color Tool",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Convert colors, check WCAG contrast and build palettes"
+  },
+  {
+   "id": "css-visual-generator",
+   "name": "CSS Visual Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate gradients, shadows, radius and flexbox or grid CSS"
+  },
+  {
+   "id": "mime-type-reference",
+   "name": "MIME Type Reference",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Look up MIME types by extension"
+  },
+  {
+   "id": "http-header-reference",
+   "name": "HTTP Header Reference",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Look up HTTP headers and their meaning"
+  },
+  {
+   "id": "linux-command-reference",
+   "name": "Linux Command Reference",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Search common Linux commands with examples"
+  },
+  {
+   "id": "user-agent-parser",
+   "name": "User Agent Parser",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Parse user-agent strings"
+  },
+  {
+   "id": "semver-calculator",
+   "name": "Semver Calculator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Compare versions and test semver ranges"
+  },
+  {
+   "id": "glob-pattern-tester",
+   "name": "Glob Pattern Tester",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Test glob patterns against paths"
+  },
+  {
+   "id": "gitignore-generator",
+   "name": ".gitignore Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate .gitignore files from templates"
+  },
+  {
+   "id": "git-command-builder",
+   "name": "Git Command Builder",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Build Git commands from a guided form"
+  },
+  {
+   "id": "dockerfile-generator",
+   "name": "Dockerfile Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate Dockerfiles from options"
+  },
+  {
+   "id": "systemd-unit-generator",
+   "name": "Systemd Unit Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate systemd unit files"
+  },
+  {
+   "id": "kubernetes-manifest-generator",
+   "name": "Kubernetes Manifest Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate Kubernetes manifests"
+  },
+  {
+   "id": "ci-pipeline-generator",
+   "name": "CI Pipeline Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate GitHub Actions and GitLab CI pipelines"
+  },
+  {
+   "id": "license-generator",
+   "name": "License Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate a license file with your name and year"
+  },
+  {
+   "id": "readme-generator",
+   "name": "Readme Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate a README from a template"
+  },
+  {
+   "id": "robots-sitemap-generator",
+   "name": "Robots Sitemap Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Generate robots.txt and sitemap.xml"
+  },
+  {
+   "id": "env-file-tool",
+   "name": ".env File Tool",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Parse, convert and compare .env files"
+  },
+  {
+   "id": "bookmarklet-generator",
+   "name": "Bookmarklet Generator",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Turn JavaScript into a bookmarklet"
+  },
+  {
+   "id": "svg-optimizer",
+   "name": "SVG Optimizer",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Clean and minify SVG"
+  },
+  {
+   "id": "image-tool",
+   "name": "Image Tool",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Resize, crop, compress, convert, watermark and build favicon and PWA icon packs with manifest"
+  },
+  {
+   "id": "pdf-toolkit",
+   "name": "PDF Toolkit",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Merge, split, reorder, rotate, watermark and number PDF pages"
+  },
+  {
+   "id": "diagram-editor",
+   "name": "Diagram Editor",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Render Mermaid diagrams to SVG and PNG"
+  },
+  {
+   "id": "sqlite-viewer",
+   "name": "SQLite Viewer",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Open and query a SQLite file locally"
+  },
+  {
+   "id": "random-picker",
+   "name": "Random Picker",
+   "category": "developer-utilities",
+   "status": "planned",
+   "does": "Pick random numbers, dice, coin flips and list items"
+  },
+  {
+   "id": "post-counter-preview",
+   "name": "Post Counter Preview",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Count characters and words against platform limits with a preview"
+  },
+  {
+   "id": "hashtag-formatter",
+   "name": "Hashtag Formatter",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Turn phrases into clean hashtags and dedupe them"
+  },
+  {
+   "id": "post-text-formatter",
+   "name": "Post Text Formatter",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Style text with Unicode fonts and keep line breaks"
+  },
+  {
+   "id": "emoji-search",
+   "name": "Emoji Search",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Search and copy emoji by name"
+  },
+  {
+   "id": "thread-splitter",
+   "name": "Thread Splitter",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Split long text into numbered posts under a limit"
+  },
+  {
+   "id": "utm-link-builder",
+   "name": "UTM Link Builder",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Build links with UTM parameters"
+  },
+  {
+   "id": "social-card-preview",
+   "name": "Social Card Preview",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Build and preview Open Graph and Twitter card tags"
+  },
+  {
+   "id": "content-calendar-planner",
+   "name": "Content Calendar Planner",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Plan posts and export CSV or ICS"
+  },
+  {
+   "id": "engagement-rate-calculator",
+   "name": "Engagement Rate Calculator",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Calculate engagement rate from counts"
+  },
+  {
+   "id": "ad-cost-calculator",
+   "name": "Ad Cost Calculator",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Calculate CPM, CPC, CTR and ROAS"
+  },
+  {
+   "id": "link-in-bio-generator",
+   "name": "Link In Bio Generator",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Generate a static link-in-bio page"
+  },
+  {
+   "id": "social-privacy-checklist",
+   "name": "Social Privacy Checklist",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Walk through platform privacy settings and export progress"
+  },
+  {
+   "id": "quote-card-maker",
+   "name": "Quote Card Maker",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Create quote images on canvas"
+  },
+  {
+   "id": "profile-audit-scorecard",
+   "name": "Profile Audit Scorecard",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Score a profile against a checklist"
+  },
+  {
+   "id": "palette-extractor",
+   "name": "Palette Extractor",
+   "category": "social-media",
+   "status": "planned",
+   "does": "Extract dominant colors from an image"
+  }
+ ],
+ "absorbed": {
+  "sha256-generator": "hash-generator",
+  "md5-generator": "hash-generator",
+  "file-hash-calculator": "hash-generator",
+  "hash-verifier": "hash-generator",
+  "html-entity-encoder": "output-encoding-tool",
+  "string-escaper": "output-encoding-tool",
+  "xss-encoder": "output-encoding-tool",
+  "epoch-converter": "timestamp-converter",
+  "unix-timestamp": "timestamp-converter",
+  "password-checker": "password-strength",
+  "password-score": "password-strength",
+  "password-leak-check": "password-breach-check",
+  "random-password": "password-generator",
+  "diceware-generator": "passphrase-generator",
+  "qr-wifi-generator": "qr-generator",
+  "qr-url-generator": "qr-generator",
+  "qr-vcard-generator": "qr-generator",
+  "uuid-v7-generator": "uuid-generator",
+  "ulid-generator": "uuid-generator",
+  "nanoid-generator": "uuid-generator",
+  "base64-file-encoder": "base64",
+  "api-key-generator": "random-string",
+  "token-generator": "random-string",
+  "random-bytes-generator": "random-string",
+  "webhook-signature-verifier": "hmac-generator",
+  "tls-config-generator": "web-server-config-generator",
+  "headers-config-generator": "web-server-config-generator",
+  "nginx-config-generator": "web-server-config-generator",
+  "htaccess-generator": "web-server-config-generator",
+  "cors-config-generator": "web-server-config-generator",
+  "word-counter": "post-counter-preview",
+  "character-counter": "post-counter-preview",
+  "text-statistics": "post-counter-preview",
+  "jwt-decoder": "jwt-tool",
+  "jwt-signer": "jwt-tool",
+  "json-validator": "json-formatter",
+  "yaml-validator": "yaml-formatter",
+  "ssh-key-generator": "key-pair-generator",
+  "cidr-subnet-splitter": "cidr-calculator",
+  "vlsm-calculator": "cidr-calculator",
+  "ipv6-compressor": "ip-address-analyzer",
+  "exif-viewer": "metadata-tool",
+  "exif-remover": "metadata-tool",
+  "metadata-scrubber": "metadata-tool",
+  "hex-dump": "hex-viewer-strings",
+  "env-auditor": "secret-scanner",
+  "github-actions-generator": "ci-pipeline-generator",
+  "gitlab-ci-generator": "ci-pipeline-generator",
+  "pkce-generator": "oauth-request-builder",
+  "hotp-generator": "totp-generator",
+  "passkey-checker": "browser-security-checker",
+  "snort-rule-builder": "detection-rule-builder",
+  "sigma-rule-builder": "detection-rule-builder",
+  "incident-report-builder": "security-report-builder",
+  "vulnerability-report-builder": "security-report-builder",
+  "color-converter": "color-tool",
+  "contrast-checker": "color-tool",
+  "palette-generator": "color-tool",
+  "px-to-rem": "unit-converter",
+  "slug-generator": "text-case-converter",
+  "sri-generator": "sri-csp-hash-generator",
+  "csp-hash-generator": "sri-csp-hash-generator",
+  "mixed-content-checker": "html-security-linter",
+  "homograph-detector": "url-inspector",
+  "invisible-character-detector": "unicode-inspector",
+  "regex-replacer": "regex-tester",
+  "dockerfile-linter": "iac-security-linter",
+  "k8s-linter": "iac-security-linter",
+  "fake-data-generator": "mock-data-generator",
+  "json-schema-sample-generator": "mock-data-generator",
+  "smart-mock-data-generator": "mock-data-generator",
+  "rest-payload-generator": "mock-data-generator",
+  "graphql-payload-generator": "mock-data-generator",
+  "curl-converter": "http-request-builder",
+  "jwt-auditor": "jwt-tool",
+  "pdf-merger-splitter": "pdf-toolkit",
+  "pdf-watermark": "pdf-toolkit",
+  "pdf-page-numbering": "pdf-toolkit",
+  "exif-metadata-scrubber": "metadata-tool",
+  "file-encryptor": "symmetric-encrypt-decrypt",
+  "image-compressor": "image-tool",
+  "favicon-pwa-icon-suite": "image-tool",
+  "wcag-contrast-checker": "color-tool",
+  "markdown-to-html-converter": "markdown-previewer",
+  "markdown-to-pdf-converter": "markdown-previewer",
+  "diff-checker": "diff-viewer",
+  "svg-code-optimizer": "svg-optimizer",
+  "cidr-subnet-calculator": "cidr-calculator",
+  "regex-security-tester": "redos-checker",
+  "local-steganography": "steganography-tool",
+  "forensic-log-analyzer": "log-analyzer",
+  "code-converters": "json-to-types",
+  "webhook-payload-inspector": "http-message-parser"
+ }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Password Crack Time Estimator | SecureKit</title>
+<meta name="description" content="See rough crack-time ranges for online, offline fast-hash and offline slow-hash attacks. Estimates only, with assumptions explained.">
+<link rel="canonical" href="https://sakibhtml323-source.github.io/SecureKit/tools/crack-time.html">
+<meta property="og:title" content="Password Crack Time Estimator | SecureKit"><meta property="og:description" content="See rough crack-time ranges for online, offline fast-hash and offline slow-hash attacks. Estimates only, with assumptions explained."><meta property="og:type" content="website"><meta property="og:url" content="https://sakibhtml323-source.github.io/SecureKit/tools/crack-time.html">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Password Crack Time Estimator | SecureKit"><meta name="twitter:description" content="See rough crack-time ranges for online, offline fast-hash and offline slow-hash attacks. Estimates only, with assumptions explained.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../assets/icons/icon-192.png"><link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../assets/css/style.css"><link rel="stylesheet" href="../assets/css/shell.css">
+<script src="../assets/js/theme.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Password Crack Time Estimator", "url": "https://sakibhtml323-source.github.io/SecureKit/tools/crack-time.html", "description": "See rough crack-time ranges for online, offline fast-hash and offline slow-hash attacks. Estimates only, with assumptions explained.", "applicationCategory": "SecurityApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sakibhtml323-source.github.io/SecureKit/"}, {"@type": "ListItem", "position": 2, "name": "Authentication", "item": "https://sakibhtml323-source.github.io/SecureKit/categories/authentication.html"}, {"@type": "ListItem", "position": 3, "name": "Password Crack Time Estimator", "item": "https://sakibhtml323-source.github.io/SecureKit/tools/crack-time.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why three different times?", "acceptedAnswer": {"@type": "Answer", "text": "Attack conditions differ enormously. Rate-limited login pages are slow to attack; a stolen database hashed with a fast algorithm is not."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+<aside class="side" id="side" aria-label="Sidebar"><a class="brand" href="../index.html"><img src="../assets/icons/favicon.svg" alt="" width="32" height="32"><span><strong>SecureKit</strong><small>Analyze · Detect · Fix · Stay Secure</small></span></a><nav aria-label="Main"><a href="../index.html"><span>Home</span></a><a href="../categories/index.html"><span>All categories</span></a></nav><div id="sk-fav" hidden><h2>Favorites</h2><nav class="lst" aria-label="Favorites"></nav></div><div id="sk-rec" hidden><h2>Recent</h2><nav class="lst" aria-label="Recent tools"></nav></div><h2>Categories</h2><nav aria-label="Categories"><a href="../categories/authentication.html"><span>Authentication</span><b>19</b></a><a href="../categories/encryption.html"><span>Encryption &amp; Hashing</span><b>16</b></a><a href="../categories/forensics.html"><span>Forensics</span><b>1</b></a><a href="../categories/developer-utilities.html"><span>Developer Utilities</span><b>4</b></a></nav><h2>Quick access</h2><nav aria-label="Quick access"><a href="../tools/password-strength.html"><span>Password Strength Checker</span></a><a href="../tools/password-breach-check.html"><span>Password Breach Check</span></a><a href="../tools/password-generator.html"><span>Secure Password Generator</span></a><a href="../tools/hash-generator.html"><span>Hash Generator</span></a></nav></aside>
+<div class="scrim" id="scrim" hidden></div>
+<div class="col">
+<header class="top"><button type="button" class="s menu" id="menu" aria-controls="side" aria-expanded="false" aria-label="Open menu">Menu</button><button type="button" class="s searchbtn" id="searchbtn">Search tools <kbd>Ctrl K</kbd></button><button type="button" class="s" id="themebtn">Theme</button></header>
+<main id="main" class="content">
+<nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../categories/authentication.html">Authentication</a> › Password Crack Time Estimator</nav>
+<div class="toolhead" data-tool-id="crack-time"><h1>Password Crack Time Estimator</h1><p class="badges"><span>Runs locally</span><span>Free</span><span>No login</span></p></div>
+<p class="lead">Estimates assume 100 guesses/s online, 10 billion/s against a fast offline hash and 10,000/s against a slow hash, averaging half the search space.</p>
+<section class="card" aria-label="Password Crack Time Estimator tool"><div data-tool="analyzer" data-show="entropy,crack"></div></section>
+<ul class="notes"><li>Real cracking time depends on the hash algorithm, attacker hardware, rate limiting, dictionaries, leaked lists and password reuse. Not a guarantee.</li></ul>
+<div class="ad-slot ad-content"><!-- GOOGLE ADSENSE CODE GOES HERE AFTER APPROVAL --></div>
+<section><h2>FAQ</h2><h3>Why three different times?</h3><p>Attack conditions differ enormously. Rate-limited login pages are slow to attack; a stolen database hashed with a fast algorithm is not.</p></section>
+<section><h2>About this tool</h2><table class="info"><tbody><tr><th scope="row">Where it runs</th><td>In your browser (client-side)</td></tr><tr><th scope="row">Network requests</th><td>None</td></tr><tr><th scope="row">Stores your input</th><td>No</td></tr><tr><th scope="row">Analytics</th><td>None</td></tr><tr><th scope="row">Price and login</th><td>Free, no account needed</td></tr><tr><th scope="row">Version</th><td>1.0.0</td></tr></tbody></table></section>
+<section><h2>Related tools</h2><div class="tgrid"><a class="tcard c-authentication" href="../tools/entropy-calculator.html"><span class="ico" aria-hidden="true">PE</span><strong>Password Entropy Calculator</strong><span class="desc">Estimate password entropy in bits from length and character pool, with notes on why pattern weaknesses can make the number optimistic.</span><em class="tag">Authentication</em></a><a class="tcard c-authentication" href="../tools/password-strength.html"><span class="ico" aria-hidden="true">PS</span><strong>Password Strength Checker</strong><span class="desc">Analyze a password in your browser: estimated score, entropy, crack-time ranges, common-password, pattern and repeat checks.</span><em class="tag">Authentication</em></a><a class="tcard c-authentication" href="../tools/password-generator.html"><span class="ico" aria-hidden="true">SP</span><strong>Secure Password Generator</strong><span class="desc">Generate strong random passwords with cryptographically secure randomness. Choose length and character sets. Nothing is stored or sent.</span><em class="tag">Authentication</em></a><a class="tcard c-authentication" href="../tools/password-breach-check.html"><span class="ico" aria-hidden="true">PB</span><strong>Password Breach Check</strong><span class="desc">Check whether a password appears in the Have I Been Pwned dataset using k-anonymity. Only a 5-character hash prefix is sent.</span><em class="tag">Authentication</em></a></div></section>
+
+</main>
+<footer class="foot"><nav aria-label="Footer"><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../cookie-policy.html">Cookie Policy</a><a href="../disclaimer.html">Disclaimer</a><a href="../contact.html">Contact</a></nav><p>SecureKit v40.0.0 · Privacy-first browser-based security tools. © 2026 SecureKit. All rights reserved.</p></footer>
+</div></div>
+<noscript><p class="pad">Interactive tools require JavaScript. Navigation links still work.</p></noscript>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/shell.js"></script>
+</body>
+</html>

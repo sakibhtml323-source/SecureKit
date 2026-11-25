@@ -1,0 +1,2511 @@
+{
+ "schemaVersion": "1.0.0",
+ "tools": [
+  {
+   "id": "password-strength",
+   "name": "Password Strength Checker",
+   "seoTitle": "Password Strength Checker",
+   "category": "authentication",
+   "tags": [
+    "password",
+    "strength"
+   ],
+   "summary": "Analyze a password in your browser: estimated score, entropy, crack-time ranges, common-password, pattern and repeat checks.",
+   "intro": "Type a password to see an estimated security score and why it scores that way. Analysis runs locally and the password is never stored or sent anywhere.",
+   "notes": [
+    "The score is our own estimate, not an industry standard, and no score guarantees safety."
+   ],
+   "faq": [
+    {
+     "q": "Is my password sent anywhere?",
+     "a": "No. This analysis runs in your browser memory only. The separate breach-check tool is the only one that makes a network request, and it sends just a 5-character hash prefix."
+    }
+   ],
+   "related": [
+    "password-breach-check",
+    "password-generator",
+    "entropy-calculator",
+    "crack-time"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "score",
+      "length",
+      "unique",
+      "comp",
+      "entropy",
+      "crack",
+      "common",
+      "pattern",
+      "repeat",
+      "issues",
+      "tips"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-strength.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 1,
+   "featured": true
+  },
+  {
+   "id": "password-breach-check",
+   "name": "Password Breach Check",
+   "seoTitle": "Password Breach Check (HIBP)",
+   "category": "authentication",
+   "tags": [
+    "breach",
+    "password"
+   ],
+   "summary": "Check whether a password appears in the Have I Been Pwned dataset using k-anonymity. Only a 5-character hash prefix is sent.",
+   "intro": "Your password is hashed locally with SHA-1. Only the first five characters of that hash are sent to the Pwned Passwords range API, and the match is made in your browser. This tool needs an internet connection.",
+   "notes": [
+    "Your password is hashed locally. Only the first five characters of the SHA-1 hash are sent for the breach lookup. Your full password and full hash are never sent to the breach-checking service. This tool does make a partial network request."
+   ],
+   "faq": [
+    {
+     "q": "What does k-anonymity mean here?",
+     "a": "The service returns every hash suffix sharing your 5-character prefix, so it cannot tell which one is yours. You compare the suffix locally."
+    }
+   ],
+   "related": [
+    "password-strength",
+    "password-generator",
+    "passphrase-generator",
+    "common-passwords"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "breach",
+    "network": [
+     "api.pwnedpasswords.com"
+    ],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-breach-check.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 2,
+   "featured": true
+  },
+  {
+   "id": "entropy-calculator",
+   "name": "Password Entropy Calculator",
+   "seoTitle": "Password Entropy Calculator",
+   "category": "authentication",
+   "tags": [
+    "calculator",
+    "entropy"
+   ],
+   "summary": "Estimate password entropy in bits from length and character pool, with notes on why pattern weaknesses can make the number optimistic.",
+   "intro": "Entropy estimates unpredictability as H = L × log2(N), where L is length and N the character pool size. It assumes characters were chosen randomly.",
+   "notes": [
+    "Entropy is an estimate. Dictionary words and patterns can make real strength far lower than the character-pool number."
+   ],
+   "faq": [
+    {
+     "q": "Why can entropy overestimate strength?",
+     "a": "The formula assumes random choices. A password like Summer2024! has a large pool but is highly predictable."
+    }
+   ],
+   "related": [
+    "password-strength",
+    "crack-time",
+    "password-generator",
+    "pattern-detection"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "length",
+      "pool",
+      "entropy",
+      "issues"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/entropy-calculator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 3,
+   "featured": false
+  },
+  {
+   "id": "crack-time",
+   "name": "Password Crack Time Estimator",
+   "seoTitle": "Password Crack Time Estimator",
+   "category": "authentication",
+   "tags": [
+    "crack",
+    "time"
+   ],
+   "summary": "See rough crack-time ranges for online, offline fast-hash and offline slow-hash attacks. Estimates only, with assumptions explained.",
+   "intro": "Estimates assume 100 guesses/s online, 10 billion/s against a fast offline hash and 10,000/s against a slow hash, averaging half the search space.",
+   "notes": [
+    "Real cracking time depends on the hash algorithm, attacker hardware, rate limiting, dictionaries, leaked lists and password reuse. Not a guarantee."
+   ],
+   "faq": [
+    {
+     "q": "Why three different times?",
+     "a": "Attack conditions differ enormously. Rate-limited login pages are slow to attack; a stolen database hashed with a fast algorithm is not."
+    }
+   ],
+   "related": [
+    "entropy-calculator",
+    "password-strength",
+    "password-generator",
+    "password-breach-check"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "entropy",
+      "crack"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/crack-time.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 4,
+   "featured": false
+  },
+  {
+   "id": "pattern-detection",
+   "name": "Password Pattern Detector",
+   "seoTitle": "Password Pattern Detector",
+   "category": "authentication",
+   "tags": [
+    "pattern"
+   ],
+   "summary": "Detect numeric and alphabetic sequences, keyboard walks, predictable year suffixes and common-password variants locally.",
+   "intro": "Attackers try predictable patterns first. This tool flags sequences like 1234 or abcd, keyboard runs like qwer, year suffixes and common substitutions.",
+   "notes": [
+    "Detection rules are heuristics and can miss patterns or flag harmless text."
+   ],
+   "faq": [
+    {
+     "q": "What counts as a pattern?",
+     "a": "Sequences, keyboard runs, trailing years and substitutions like @ for a on a common word."
+    }
+   ],
+   "related": [
+    "repeat-detection",
+    "common-passwords",
+    "password-strength",
+    "entropy-calculator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "pattern",
+      "issues"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/pattern-detection.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 5,
+   "featured": false
+  },
+  {
+   "id": "repeat-detection",
+   "name": "Password Repeat Detector",
+   "seoTitle": "Password Repeat Detector",
+   "category": "authentication",
+   "tags": [
+    "repeat"
+   ],
+   "summary": "Find repeated characters and repeated blocks such as aaa, 111, abab or abcabc in a password, entirely in your browser.",
+   "intro": "Repetition lowers the real number of unpredictable characters. This tool flags repeated characters and repeated blocks.",
+   "notes": [
+    "Heuristic only. A repeat finding means the password is more predictable than its length suggests."
+   ],
+   "faq": [
+    {
+     "q": "Why do repeats matter?",
+     "a": "They make a password easier to guess and reduce how much of its length actually adds unpredictability."
+    }
+   ],
+   "related": [
+    "pattern-detection",
+    "password-strength",
+    "entropy-calculator",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "repeat",
+      "issues"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/repeat-detection.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 6,
+   "featured": false
+  },
+  {
+   "id": "common-passwords",
+   "name": "Common Password Checker",
+   "seoTitle": "Common Password Checker",
+   "category": "authentication",
+   "tags": [
+    "common",
+    "passwords"
+   ],
+   "summary": "Check a password against a built-in list of very common passwords and obvious variants, locally in your browser.",
+   "intro": "Common passwords are guessed first by attackers. The check is local and covers exact matches and obvious suffix or substitution variants.",
+   "notes": [
+    "The built-in list is small and not complete. Use the breach check for a much larger dataset."
+   ],
+   "faq": [
+    {
+     "q": "Is this list complete?",
+     "a": "No. It covers about fifty very common passwords. The HIBP breach check covers hundreds of millions."
+    }
+   ],
+   "related": [
+    "password-breach-check",
+    "pattern-detection",
+    "password-strength",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "analyzer",
+    "network": [],
+    "options": {
+     "show": [
+      "common",
+      "issues"
+     ]
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/common-passwords.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 7,
+   "featured": false
+  },
+  {
+   "id": "password-generator",
+   "name": "Secure Password Generator",
+   "seoTitle": "Free Secure Password Generator",
+   "category": "authentication",
+   "tags": [
+    "password"
+   ],
+   "summary": "Generate strong random passwords with cryptographically secure randomness. Choose length and character sets. Nothing is stored or sent.",
+   "intro": "Passwords are generated with crypto.getRandomValues, guarantee each selected character type and are shuffled securely.",
+   "notes": [
+    "Store generated passwords in a password manager. This page does not save them."
+   ],
+   "faq": [
+    {
+     "q": "Are generated passwords stored?",
+     "a": "No. They exist only on this page until you close or clear it."
+    }
+   ],
+   "related": [
+    "password-strength",
+    "entropy-calculator",
+    "crack-time",
+    "password-breach-check"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "password",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 8,
+   "featured": true
+  },
+  {
+   "id": "passphrase-generator",
+   "name": "Passphrase Generator",
+   "seoTitle": "Passphrase Generator",
+   "category": "authentication",
+   "tags": [
+    "passphrase"
+   ],
+   "summary": "Generate memorable multi-word passphrases locally with secure randomness, custom separators and entropy estimates.",
+   "intro": "Random words are easier to remember than random characters. Words are chosen from a local list with secure randomness.",
+   "notes": [
+    "The built-in list is modest in size, so use 6 or more words for important accounts. Entropy shown is computed from the real list size."
+   ],
+   "faq": [
+    {
+     "q": "How many words should I use?",
+     "a": "Five to six for most accounts, more for a password-manager master passphrase."
+    }
+   ],
+   "related": [
+    "password-generator",
+    "password-strength",
+    "entropy-calculator",
+    "random-string"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "passphrase",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/passphrase-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 9,
+   "featured": false
+  },
+  {
+   "id": "pin-generator",
+   "name": "Secure PIN Generator",
+   "seoTitle": "Secure PIN Generator",
+   "category": "authentication",
+   "tags": [
+    "pin"
+   ],
+   "summary": "Generate random 4, 6, 8 or 10 digit PINs with secure randomness while avoiding patterns like 1234 or 0000.",
+   "intro": "PINs are generated with crypto.getRandomValues, and predictable results such as repeats, runs and common patterns are rejected.",
+   "notes": [
+    "Short PINs are weak by nature. Rely on lockouts and rate limiting, and prefer longer PINs."
+   ],
+   "faq": [
+    {
+     "q": "Why avoid 1234?",
+     "a": "Attackers try the most common PINs first."
+    }
+   ],
+   "related": [
+    "password-generator",
+    "random-string",
+    "uuid-generator",
+    "entropy-calculator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "pin",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/pin-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 10,
+   "featured": false
+  },
+  {
+   "id": "random-string",
+   "name": "Random String Generator",
+   "seoTitle": "Random String Generator",
+   "category": "developer-utilities",
+   "tags": [
+    "random",
+    "string"
+   ],
+   "summary": "Generate random strings from 1 to 256 characters with secure randomness. Choose character sets and exclude ambiguous characters.",
+   "intro": "Useful for tokens, test data and identifiers. Values come from crypto.getRandomValues.",
+   "notes": [
+    "Do not reuse generated strings across systems and generate real secrets on the server that uses them where possible."
+   ],
+   "faq": [
+    {
+     "q": "Is it safe for tokens?",
+     "a": "The randomness source is suitable, but treat tokens according to your system's own security requirements."
+    }
+   ],
+   "related": [
+    "uuid-generator",
+    "password-generator",
+    "base64",
+    "hash-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "random",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/random-string.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 11,
+   "featured": false
+  },
+  {
+   "id": "uuid-generator",
+   "name": "UUID v4 Generator",
+   "seoTitle": "UUID v4 Generator",
+   "category": "developer-utilities",
+   "tags": [
+    "uuid"
+   ],
+   "summary": "Generate RFC-style version 4 UUIDs in bulk (1, 10, 50 or 100) locally using secure randomness.",
+   "intro": "UUID v4 values are random 128-bit identifiers with version and variant bits set.",
+   "notes": [
+    "UUIDs are identifiers, not secrets. Do not use them as passwords or access tokens by themselves."
+   ],
+   "faq": [
+    {
+     "q": "Are UUIDs unique?",
+     "a": "Collisions are astronomically unlikely with good randomness."
+    }
+   ],
+   "related": [
+    "random-string",
+    "hash-generator",
+    "base64",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "uuid",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/uuid-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 12,
+   "featured": false
+  },
+  {
+   "id": "hash-generator",
+   "name": "Hash Generator",
+   "seoTitle": "Online Hash Generator (SHA-1, SHA-256, SHA-512)",
+   "category": "encryption",
+   "tags": [
+    "hash"
+   ],
+   "summary": "Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes of any text locally in your browser.",
+   "intro": "Hashing turns text into a fixed-length fingerprint. Unicode text is hashed as UTF-8 and nothing leaves your browser.",
+   "notes": [
+    "SHA-1 is deprecated for collision resistance. None of these fast hashes are suitable for storing passwords; use bcrypt, scrypt or Argon2 instead. MD5 is obsolete for cryptographic security and is included only for checksums and legacy compatibility."
+   ],
+   "faq": [
+    {
+     "q": "Can I hash passwords with this?",
+     "a": "For checksums yes; for storing passwords no, use a slow password hashing function."
+    }
+   ],
+   "related": [
+    "hmac-generator",
+    "hash-identifier",
+    "crc-checksum-calculator",
+    "base64",
+    "uuid-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "hash",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/hash-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 13,
+   "featured": true
+  },
+  {
+   "id": "base64",
+   "name": "Base64 Encoder & Decoder",
+   "seoTitle": "Base64 Encoder & Decoder",
+   "category": "developer-utilities",
+   "tags": [
+    "base64"
+   ],
+   "summary": "Encode and decode Base64 with proper UTF-8 handling for Bangla, emoji and other Unicode. Runs entirely in your browser.",
+   "intro": "Base64 represents bytes as text. This tool converts through UTF-8 so non-English text round-trips correctly.",
+   "notes": [
+    "Base64 is encoding, not encryption. Anyone can decode it."
+   ],
+   "faq": [
+    {
+     "q": "Why does decoding sometimes fail?",
+     "a": "Input must be valid Base64 and decode to valid UTF-8 text."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "uuid-generator",
+    "qr-generator",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "base64",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/base64.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 14,
+   "featured": false
+  },
+  {
+   "id": "qr-generator",
+   "name": "QR Code Generator",
+   "seoTitle": "Free QR Code Generator",
+   "category": "developer-utilities",
+   "tags": [
+    "qr"
+   ],
+   "summary": "Create QR codes for text, URLs, Wi-Fi, email and phone numbers entirely in your browser. Download PNG or SVG. Nothing is uploaded.",
+   "intro": "Enter your content and generate a QR code locally. No QR service is called and your content never leaves your browser.",
+   "notes": [
+    "Your QR content is processed locally in your browser. Wi-Fi QR codes contain the network password in readable form to anyone who scans them, so share them carefully."
+   ],
+   "faq": [
+    {
+     "q": "Is my QR content sent anywhere?",
+     "a": "No. The QR code is built by code running in your browser, and downloads are created locally."
+    }
+   ],
+   "related": [
+    "base64",
+    "random-string",
+    "uuid-generator",
+    "hash-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "qr",
+    "network": [],
+    "options": {
+     "show": []
+    }
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/qr-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 15,
+   "featured": false
+  },
+  {
+   "id": "hmac-generator",
+   "name": "HMAC Generator",
+   "seoTitle": "HMAC Generator",
+   "category": "encryption",
+   "tags": [
+    "hmac"
+   ],
+   "summary": "Compute and verify HMAC-SHA signatures for messages and webhook payloads, with a constant-time comparison.",
+   "intro": "Paste the exact message body and the shared secret to compute an HMAC, or paste a received signature to verify it. Prefixes such as sha256= are handled.",
+   "notes": [
+    "Keep secrets private. Verify against the raw body exactly as received, because any whitespace change alters the HMAC."
+   ],
+   "faq": [
+    {
+     "q": "What is HMAC used for?",
+     "a": "HMAC proves a message came from someone who knows the shared secret and was not changed. Webhook providers use it to sign requests."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "key-derivation-tool",
+    "symmetric-encrypt-decrypt",
+    "random-string"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "hmac",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/hmac.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/hmac-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 16,
+   "featured": false
+  },
+  {
+   "id": "symmetric-encrypt-decrypt",
+   "name": "Symmetric Encrypt / Decrypt (AES-256-GCM)",
+   "seoTitle": "Symmetric Encrypt / Decrypt (AES-256-GCM)",
+   "category": "encryption",
+   "tags": [
+    "decrypt",
+    "encrypt",
+    "symmetric"
+   ],
+   "summary": "Encrypt and decrypt text or files with AES-256-GCM and a password, entirely offline in your browser.",
+   "intro": "Enter a password and your text or file. The key is derived with PBKDF2-SHA-256 (600,000 iterations by default) and every encryption uses a fresh random salt and IV.",
+   "notes": [
+    "Lost passwords cannot be recovered. Files are processed in memory (300 MB limit). Output is only decryptable with this tool's format."
+   ],
+   "faq": [
+    {
+     "q": "Is my data uploaded?",
+     "a": "No. Encryption uses the Web Crypto API in your browser and nothing is sent anywhere."
+    }
+   ],
+   "related": [
+    "key-derivation-tool",
+    "hmac-generator",
+    "key-pair-generator",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "symenc",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/symenc.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/symmetric-encrypt-decrypt.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 17,
+   "featured": false
+  },
+  {
+   "id": "key-pair-generator",
+   "name": "Key Pair Generator",
+   "seoTitle": "Key Pair Generator",
+   "category": "encryption",
+   "tags": [
+    "key",
+    "pair"
+   ],
+   "summary": "Generate RSA, ECDSA, Ed25519, ECDH and X25519 key pairs as PEM or JWK, locally in your browser.",
+   "intro": "Pick an algorithm and generate a key pair with the Web Crypto API. Public keys are exported as SPKI PEM and private keys as PKCS#8 PEM, plus JWK versions.",
+   "notes": [
+    "The private key is shown only on this page and is never stored. Copy it to a secure place. Ed25519 and X25519 need a recent browser."
+   ],
+   "faq": [
+    {
+     "q": "Which algorithm should I choose?",
+     "a": "Use Ed25519 or ECDSA P-256 for signatures, X25519 or ECDH for key agreement and RSA-3072 or larger only when you need RSA compatibility."
+    }
+   ],
+   "related": [
+    "digital-signature-tool",
+    "rsa-oaep-tool",
+    "ecdh-key-exchange",
+    "jwk-pem-converter",
+    "ssh-key-fingerprint"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "keypair",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/keys.js",
+     "tools/keypair.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/key-pair-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 18,
+   "featured": false
+  },
+  {
+   "id": "rsa-oaep-tool",
+   "name": "RSA-OAEP Encrypt / Decrypt",
+   "seoTitle": "RSA-OAEP Encrypt / Decrypt",
+   "category": "encryption",
+   "tags": [
+    "oaep",
+    "rsa"
+   ],
+   "summary": "Encrypt short messages with an RSA public key and decrypt them with the private key using RSA-OAEP.",
+   "intro": "Paste a public key (PEM or JWK) to encrypt, or a private key to decrypt Base64 ciphertext. Hash choices are SHA-256, SHA-384, SHA-512 and SHA-1.",
+   "notes": [
+    "RSA encrypts only small messages (about 190 bytes for RSA-2048 with SHA-256). For larger data, encrypt with AES and protect that key with RSA."
+   ],
+   "faq": [
+    {
+     "q": "How much can RSA-OAEP encrypt?",
+     "a": "Key size in bytes minus twice the hash size minus 2. For RSA-2048 with SHA-256 that is 190 bytes."
+    }
+   ],
+   "related": [
+    "key-pair-generator",
+    "symmetric-encrypt-decrypt",
+    "jwk-pem-converter",
+    "digital-signature-tool"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "rsaoaep",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/keys.js",
+     "tools/rsaoaep.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/rsa-oaep-tool.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 19,
+   "featured": false
+  },
+  {
+   "id": "digital-signature-tool",
+   "name": "Digital Signature Tool",
+   "seoTitle": "Digital Signature Tool",
+   "category": "encryption",
+   "tags": [
+    "digital",
+    "signature"
+   ],
+   "summary": "Sign messages and verify signatures with ECDSA, Ed25519 or RSA-PSS keys in PEM or JWK form.",
+   "intro": "Paste a private key to sign or a public key to verify. Signatures are Base64. ECDSA uses the raw r||s encoding used by Web Crypto and JWS.",
+   "notes": [
+    "Never paste a production private key into any website you do not control. This page runs locally, but treat sample keys as disposable."
+   ],
+   "faq": [
+    {
+     "q": "Why does verification fail?",
+     "a": "The message, key, hash or algorithm differs from the one used to sign. Even one changed character invalidates a signature."
+    }
+   ],
+   "related": [
+    "key-pair-generator",
+    "jwk-pem-converter",
+    "hmac-generator",
+    "rsa-oaep-tool"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "signature",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/keys.js",
+     "tools/signature.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/digital-signature-tool.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 20,
+   "featured": false
+  },
+  {
+   "id": "ecdh-key-exchange",
+   "name": "ECDH Key Exchange",
+   "seoTitle": "ECDH Key Exchange",
+   "category": "encryption",
+   "tags": [
+    "ecdh",
+    "exchange",
+    "key"
+   ],
+   "summary": "Derive a shared secret from your private key and a peer's public key with ECDH or X25519, plus an HKDF key.",
+   "intro": "Two parties each combine their own private key with the other's public key and get the same secret. The tool also derives a 256-bit key with HKDF-SHA-256.",
+   "notes": [
+    "Use the HKDF output as the key, not the raw shared secret. Key agreement alone does not prove who the other party is."
+   ],
+   "faq": [
+    {
+     "q": "Do both sides get the same secret?",
+     "a": "Yes. A's private key with B's public key gives the same value as B's private key with A's public key."
+    }
+   ],
+   "related": [
+    "key-pair-generator",
+    "key-derivation-tool",
+    "symmetric-encrypt-decrypt",
+    "jwk-pem-converter"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "ecdh",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/keys.js",
+     "tools/ecdh.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/ecdh-key-exchange.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 21,
+   "featured": false
+  },
+  {
+   "id": "jwk-pem-converter",
+   "name": "JWK / PEM Converter",
+   "seoTitle": "JWK / PEM Converter",
+   "category": "encryption",
+   "tags": [
+    "converter",
+    "jwk",
+    "pem"
+   ],
+   "summary": "Convert public and private keys between JWK (JSON) and PEM (SPKI or PKCS#8), for RSA, EC, Ed25519 and X25519.",
+   "intro": "Paste a JWK to get PEM, or a PEM key to get JWK. The direction and key type (public or private) are detected for you.",
+   "notes": [
+    "PKCS#1 (BEGIN RSA PRIVATE KEY) and SEC1 keys are not accepted; convert them first with openssl pkcs8 -topk8 -nocrypt."
+   ],
+   "faq": [
+    {
+     "q": "Which PEM formats work?",
+     "a": "SPKI public keys (BEGIN PUBLIC KEY) and PKCS#8 private keys (BEGIN PRIVATE KEY)."
+    }
+   ],
+   "related": [
+    "key-pair-generator",
+    "digital-signature-tool",
+    "rsa-oaep-tool",
+    "ssh-key-fingerprint"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "jwkpem",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/keys.js",
+     "tools/jwkpem.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/jwk-pem-converter.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 22,
+   "featured": false
+  },
+  {
+   "id": "key-derivation-tool",
+   "name": "Key Derivation Tool (PBKDF2, HKDF)",
+   "seoTitle": "Key Derivation Tool (PBKDF2, HKDF)",
+   "category": "encryption",
+   "tags": [
+    "derivation",
+    "key"
+   ],
+   "summary": "Derive keys with PBKDF2 or HKDF and measure how long your chosen iteration count takes on this device.",
+   "intro": "PBKDF2 stretches a password into a key; HKDF expands key material you already have. Enter inputs as text or hex and choose the output length.",
+   "notes": [
+    "Use a random salt of at least 16 bytes and a high iteration count for passwords. HKDF is not suitable for low-entropy passwords."
+   ],
+   "faq": [
+    {
+     "q": "How many PBKDF2 iterations should I use?",
+     "a": "Current guidance for PBKDF2-HMAC-SHA-256 is at least 600,000. Use the timing readout to see the cost on your device."
+    }
+   ],
+   "related": [
+    "symmetric-encrypt-decrypt",
+    "hmac-generator",
+    "password-generator",
+    "ecdh-key-exchange"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "kdf",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/kdf.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/key-derivation-tool.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 23,
+   "featured": false
+  },
+  {
+   "id": "hash-identifier",
+   "name": "Hash Identifier",
+   "seoTitle": "Hash Identifier",
+   "category": "encryption",
+   "tags": [
+    "hash",
+    "identifier"
+   ],
+   "summary": "Identify the likely type of a hash or password-hash string from its format, prefix and length.",
+   "intro": "Paste a hash and see which algorithms fit, such as bcrypt, Argon2, SHA-crypt, MD5, SHA-1 or SHA-256, with notes on whether they are safe for passwords.",
+   "notes": [
+    "Identification is a heuristic. Many algorithms share a length, so treat the result as a list of candidates, not proof."
+   ],
+   "faq": [
+    {
+     "q": "Why are there several answers?",
+     "a": "A 32-character hex string could be MD5, NTLM or MD4. Length alone cannot tell them apart."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "hmac-generator",
+    "crc-checksum-calculator",
+    "password-strength"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "hashid",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/hashid.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/hash-identifier.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 24,
+   "featured": false
+  },
+  {
+   "id": "crc-checksum-calculator",
+   "name": "CRC and Checksum Calculator",
+   "seoTitle": "CRC and Checksum Calculator",
+   "category": "encryption",
+   "tags": [
+    "calculator",
+    "checksum",
+    "crc"
+   ],
+   "summary": "Compute CRC-32, CRC-16 (CCITT-FALSE and MODBUS), CRC-8 and Adler-32 checksums of text or hex bytes.",
+   "intro": "Enter text or hex bytes to get the common checksum variants at once, matching the standard check values.",
+   "notes": [
+    "Checksums catch accidental corruption only. They are not secure against deliberate tampering; use a cryptographic hash or HMAC for that."
+   ],
+   "faq": [
+    {
+     "q": "Is CRC a hash?",
+     "a": "It is a checksum for error detection, not a cryptographic hash. Anyone can craft data with a chosen CRC."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "hmac-generator",
+    "base64",
+    "hash-identifier"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "crc",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/crc.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/crc-checksum-calculator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 25,
+   "featured": false
+  },
+  {
+   "id": "classical-cipher-tool",
+   "name": "Classical Cipher Tool",
+   "seoTitle": "Classical Cipher Tool",
+   "category": "encryption",
+   "tags": [
+    "cipher",
+    "classical"
+   ],
+   "summary": "Apply Caesar, ROT13, ROT47, Atbash and Vigenere ciphers, or list all 25 Caesar shifts.",
+   "intro": "A learning tool for historic ciphers and puzzles. Choose a cipher, set the shift or key, and encrypt or decrypt.",
+   "notes": [
+    "These ciphers are trivially broken and offer no real security. Use modern encryption for anything that matters."
+   ],
+   "faq": [
+    {
+     "q": "Is ROT13 encryption?",
+     "a": "No. ROT13 only hides text from a casual glance and is undone by applying it again."
+    }
+   ],
+   "related": [
+    "xor-cipher-tool",
+    "symmetric-encrypt-decrypt",
+    "base64",
+    "hash-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "classic",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/classic.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/classical-cipher-tool.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 26,
+   "featured": false
+  },
+  {
+   "id": "xor-cipher-tool",
+   "name": "XOR Cipher Tool",
+   "seoTitle": "XOR Cipher Tool",
+   "category": "encryption",
+   "tags": [
+    "cipher",
+    "xor"
+   ],
+   "summary": "XOR text or hex data with a repeating key, or brute-force a single-byte XOR key by scoring English-like output.",
+   "intro": "Enter data and a key to get hex output. The brute-force mode tries all 256 single-byte keys and ranks the results.",
+   "notes": [
+    "Repeating-key XOR is not secure encryption. Brute-force scoring suits English text and may miss other data."
+   ],
+   "faq": [
+    {
+     "q": "Is XOR encryption secure?",
+     "a": "Only a truly random one-time key as long as the message is secure. A short repeating key is easy to break."
+    }
+   ],
+   "related": [
+    "classical-cipher-tool",
+    "symmetric-encrypt-decrypt",
+    "hash-generator",
+    "base64"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "xorcipher",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/xorcipher.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/xor-cipher-tool.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 27,
+   "featured": false
+  },
+  {
+   "id": "ssh-key-fingerprint",
+   "name": "SSH Key Fingerprint",
+   "seoTitle": "SSH Key Fingerprint",
+   "category": "encryption",
+   "tags": [
+    "fingerprint",
+    "key",
+    "ssh"
+   ],
+   "summary": "Compute the SHA-256 and MD5 fingerprints of an SSH public key, in the format ssh and GitHub display.",
+   "intro": "Paste one public key line (ssh-ed25519, ssh-rsa or ecdsa) to get its fingerprint for comparing with a server or provider.",
+   "notes": [
+    "Only public keys are needed. Never paste a private key. A matching fingerprint confirms the key, not the person."
+   ],
+   "faq": [
+    {
+     "q": "Where do I find the fingerprint to compare?",
+     "a": "Run ssh-keygen -lf on the key file, or check the fingerprint shown by your Git host or server on first connection."
+    }
+   ],
+   "related": [
+    "key-pair-generator",
+    "jwk-pem-converter",
+    "hash-generator",
+    "digital-signature-tool"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "sshfp",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/sshfp.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/ssh-key-fingerprint.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 28,
+   "featured": false
+  },
+  {
+   "id": "merkle-tree-builder",
+   "name": "Merkle Tree Builder",
+   "seoTitle": "Merkle Tree Builder",
+   "category": "encryption",
+   "tags": [
+    "builder",
+    "merkle",
+    "tree"
+   ],
+   "summary": "Build a SHA-256 Merkle tree from a list of leaves, get the root, and create or check an inclusion proof.",
+   "intro": "Enter one leaf per line (text or already-hashed hex). Choose how odd nodes are handled and get the root plus a proof path for any leaf.",
+   "notes": [
+    "Different systems hash leaves and odd nodes differently. Match the convention of the system you are checking."
+   ],
+   "faq": [
+    {
+     "q": "What is a Merkle proof?",
+     "a": "A short list of sibling hashes that lets you recompute the root and prove a leaf is part of the set."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "hmac-generator",
+    "crc-checksum-calculator",
+    "base64"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "merkle",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/merkle.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/merkle-tree-builder.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 29,
+   "featured": false
+  },
+  {
+   "id": "randomness-tester",
+   "name": "Randomness Tester",
+   "seoTitle": "Randomness Tester",
+   "category": "encryption",
+   "tags": [
+    "randomness",
+    "tester"
+   ],
+   "summary": "Run monobit, runs and byte chi-square tests on pasted data or on bytes from the browser's secure generator.",
+   "intro": "Paste hex or text, or generate bytes with crypto.getRandomValues, and check bit balance, runs and byte frequencies with p-values.",
+   "notes": [
+    "Passing basic tests does not prove cryptographic quality, and a random source will fail about 1 in 100 runs at the 0.01 level by chance."
+   ],
+   "faq": [
+    {
+     "q": "What does a p-value mean here?",
+     "a": "It is the probability of seeing a result at least this extreme from truly random data. Very small values flag non-random behaviour."
+    }
+   ],
+   "related": [
+    "random-string",
+    "entropy-calculator",
+    "uuid-generator",
+    "password-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "randtest",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/randtest.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/randomness-tester.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 30,
+   "featured": false
+  },
+  {
+   "id": "totp-generator",
+   "name": "TOTP and HOTP Generator",
+   "seoTitle": "TOTP and HOTP Generator",
+   "category": "authentication",
+   "tags": [
+    "totp"
+   ],
+   "summary": "Generate and verify TOTP and HOTP one-time codes from a Base32 secret, with SHA-1, SHA-256 and SHA-512.",
+   "intro": "Enter the Base32 secret from a 2FA setup to see the live code and the seconds remaining, or verify a code with one step of clock tolerance. Matches RFC 4226 and RFC 6238 test vectors.",
+   "notes": [
+    "Anyone with the secret can generate your codes, so use this for testing and recovery planning, not as a replacement for your authenticator app."
+   ],
+   "faq": [
+    {
+     "q": "Why does my code not match my app?",
+     "a": "The most common causes are a wrong digit count, period or algorithm, or a device clock that is off by more than 30 seconds."
+    }
+   ],
+   "related": [
+    "otpauth-uri-builder",
+    "backup-code-generator",
+    "mfa-method-advisor",
+    "hmac-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "totp",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/totp.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/totp-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 31,
+   "featured": false
+  },
+  {
+   "id": "otpauth-uri-builder",
+   "name": "OTPAuth Link and QR Builder",
+   "seoTitle": "OTPAuth Link and QR Builder",
+   "category": "authentication",
+   "tags": [
+    "builder",
+    "otpauth",
+    "uri"
+   ],
+   "summary": "Build an otpauth:// link and QR code for authenticator apps, or parse an existing link into its settings.",
+   "intro": "Enter the service name, account and a Base32 secret (or generate a random one) to get a link and QR code you can scan with an authenticator app.",
+   "notes": [
+    "The link contains the secret in plain form. Do not share the QR code or link, and delete screenshots after enrolling."
+   ],
+   "faq": [
+    {
+     "q": "Which apps accept these links?",
+     "a": "Most authenticator apps accept the standard Key URI format, though some ignore non-default algorithms, digits or periods."
+    }
+   ],
+   "related": [
+    "totp-generator",
+    "backup-code-generator",
+    "qr-generator",
+    "mfa-method-advisor"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "otpauth",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "qr.js",
+     "tools/otpauth.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/otpauth-uri-builder.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 32,
+   "featured": false
+  },
+  {
+   "id": "password-policy-checker",
+   "name": "Password Policy Checker",
+   "seoTitle": "Password Policy Checker",
+   "category": "authentication",
+   "tags": [
+    "checker",
+    "password",
+    "policy"
+   ],
+   "summary": "Test passwords against your own rules for length, character types, banned words, repeats and common passwords.",
+   "intro": "Set the rules your system uses, paste candidate passwords one per line and see which pass or fail and why. Passwords are not echoed back.",
+   "notes": [
+    "Modern guidance favours length and blocklists over forced complexity. Use this to check what your rules actually allow."
+   ],
+   "faq": [
+    {
+     "q": "Should I require symbols and numbers?",
+     "a": "Current guidance (for example NIST 800-63B) favours a longer minimum length and blocking known-bad passwords over composition rules."
+    }
+   ],
+   "related": [
+    "password-strength",
+    "common-passwords",
+    "password-reuse-checker",
+    "login-lockout-calculator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "policy",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/policy.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-policy-checker.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 33,
+   "featured": false
+  },
+  {
+   "id": "backup-code-generator",
+   "name": "Backup Code Generator",
+   "seoTitle": "Backup Code Generator",
+   "category": "authentication",
+   "tags": [
+    "backup",
+    "code"
+   ],
+   "summary": "Generate printable sets of random one-time recovery codes without confusing characters like 0, O, 1 and I.",
+   "intro": "Choose how many codes and how long. Codes use cryptographically secure randomness and a clear alphabet, and are grouped for easy reading.",
+   "notes": [
+    "Store codes offline and treat each as single-use. This tool does not keep them, so save or print them before leaving."
+   ],
+   "faq": [
+    {
+     "q": "How long should recovery codes be?",
+     "a": "Ten characters from a 30-symbol alphabet is about 49 bits, enough for single-use codes that are also rate-limited."
+    }
+   ],
+   "related": [
+    "totp-generator",
+    "mfa-method-advisor",
+    "password-generator",
+    "pin-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "backup",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/backup.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/backup-code-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 34,
+   "featured": false
+  },
+  {
+   "id": "password-reuse-checker",
+   "name": "Password Reuse Checker",
+   "seoTitle": "Password Reuse Checker",
+   "category": "authentication",
+   "tags": [
+    "checker",
+    "password",
+    "reuse"
+   ],
+   "summary": "Compare a list of passwords for exact reuse, near-duplicates and shared chunks without showing the passwords.",
+   "intro": "Paste your passwords one per line to find reused and look-alike ones such as Summer2024! and Summer2025!. Only line numbers are reported.",
+   "notes": [
+    "Similar passwords are nearly as risky as reused ones: if one leaks, attackers try the variations. Replace them with unique passwords."
+   ],
+   "faq": [
+    {
+     "q": "Is a small change enough to make a password unique?",
+     "a": "No. Attackers routinely try common mutations such as changing a year, digit or symbol."
+    }
+   ],
+   "related": [
+    "password-strength",
+    "password-csv-auditor",
+    "password-generator",
+    "password-breach-check"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "reuse",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/reuse.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-reuse-checker.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 35,
+   "featured": false
+  },
+  {
+   "id": "login-lockout-calculator",
+   "name": "Login Lockout Calculator",
+   "seoTitle": "Login Lockout Calculator",
+   "category": "authentication",
+   "tags": [
+    "calculator",
+    "lockout",
+    "login"
+   ],
+   "summary": "Estimate how long attackers need to guess a PIN or password under your lockout and rate-limit policy.",
+   "intro": "Enter secret strength and your lockout rules to see guesses per day, the time to exhaust a common-password list and the chance of success over your chosen period.",
+   "notes": [
+    "This is a simple one-account model. Distributed attacks, password spraying and leaked hashes are not covered and can be far faster."
+   ],
+   "faq": [
+    {
+     "q": "What counts as a good lockout policy?",
+     "a": "One that makes online guessing take years for a strong secret and still blocks the common-password list, combined with blocklists and MFA."
+    }
+   ],
+   "related": [
+    "crack-time",
+    "password-policy-checker",
+    "entropy-calculator",
+    "pin-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "lockout",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/lockout.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/login-lockout-calculator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 36,
+   "featured": false
+  },
+  {
+   "id": "email-alias-generator",
+   "name": "Email Alias Generator",
+   "seoTitle": "Email Alias Generator",
+   "category": "authentication",
+   "tags": [
+    "alias",
+    "email"
+   ],
+   "summary": "Create plus-tag and Gmail dot-variant aliases of your address to separate sign-ups and trace leaks.",
+   "intro": "Enter your address and tags to get ready-to-use aliases that arrive in the same inbox, or list dot variants for Gmail-style providers.",
+   "notes": [
+    "Not every provider or website supports plus addressing, and aliases do not hide your real address. Use a real forwarding service for that."
+   ],
+   "faq": [
+    {
+     "q": "Do plus aliases protect my privacy?",
+     "a": "Only partly. They help you filter mail and spot who leaked your address, but the real address is still visible."
+    }
+   ],
+   "related": [
+    "password-generator",
+    "passphrase-generator",
+    "password-breach-check",
+    "mfa-method-advisor"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "alias",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/alias.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/email-alias-generator.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 37,
+   "featured": false
+  },
+  {
+   "id": "password-csv-auditor",
+   "name": "Password CSV Auditor",
+   "seoTitle": "Password CSV Auditor",
+   "category": "authentication",
+   "tags": [
+    "auditor",
+    "csv",
+    "password"
+   ],
+   "summary": "Audit an exported password-manager CSV for weak, short, common and reused passwords without displaying the passwords.",
+   "intro": "Load a CSV exported from a password manager or browser. The tool lists which entries need attention and can download a report that contains no passwords.",
+   "notes": [
+    "The export contains all your passwords in plain text. Audit it, then securely delete the file. Nothing is uploaded."
+   ],
+   "faq": [
+    {
+     "q": "Which columns are needed?",
+     "a": "A header row with a password column. Name, URL and username columns are used to label results."
+    }
+   ],
+   "related": [
+    "password-reuse-checker",
+    "password-strength",
+    "password-breach-check",
+    "common-passwords"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "csvaudit",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/csvaudit.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/password-csv-auditor.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 38,
+   "featured": false
+  },
+  {
+   "id": "mfa-method-advisor",
+   "name": "MFA Method Advisor",
+   "seoTitle": "MFA Method Advisor",
+   "category": "authentication",
+   "tags": [
+    "advisor",
+    "method",
+    "mfa"
+   ],
+   "summary": "Get a ranked recommendation of multi-factor methods based on account sensitivity, phishing risk and your devices.",
+   "intro": "Answer a few questions and see passkeys, authenticator apps, push, email and SMS ranked, with the reason for each and what is unavailable to you.",
+   "notes": [
+    "General guidance only. Any second factor is far better than none, and every account should also have backup codes."
+   ],
+   "faq": [
+    {
+     "q": "Is SMS two-factor still worth using?",
+     "a": "Yes if it is the only option, but it is weaker than authenticator apps or passkeys because of SIM swaps and interception."
+    }
+   ],
+   "related": [
+    "totp-generator",
+    "backup-code-generator",
+    "password-policy-checker",
+    "otpauth-uri-builder"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "mfa",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/mfa.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": false,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/mfa-method-advisor.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 39,
+   "featured": false
+  },
+  {
+   "id": "hash-wordlist-matcher",
+   "name": "Hash Wordlist Matcher",
+   "seoTitle": "Hash Wordlist Matcher",
+   "category": "forensics",
+   "tags": [
+    "hash",
+    "matcher",
+    "wordlist"
+   ],
+   "summary": "Match unsalted MD5 and SHA hashes against your own wordlist to audit weak passwords and solve CTF exercises.",
+   "intro": "Paste hashes and a wordlist; each word is hashed locally and compared. It shows which hashes appear in your list.",
+   "notes": [
+    "Dictionary lookup only: no brute force, no salts and no slow hashes. Use it for your own data or authorised exercises."
+   ],
+   "faq": [
+    {
+     "q": "Why was my hash not found?",
+     "a": "Either the plaintext is not in your list, the hash is salted or slow (such as bcrypt), or it uses an unsupported length."
+    }
+   ],
+   "related": [
+    "hash-generator",
+    "hash-identifier",
+    "common-passwords",
+    "hmac-generator"
+   ],
+   "version": "1.0.0",
+   "status": "live",
+   "since": "2026-10",
+   "runtime": {
+    "type": "client",
+    "module": "wordlist",
+    "network": [],
+    "scripts": [
+     "tools/common.js",
+     "tools/wordlist.js"
+    ]
+   },
+   "contract": {
+    "fn": "run(input, options) -> result",
+    "pure": true,
+    "inputKind": "text"
+   },
+   "privacy": {
+    "processing": "local",
+    "storesUserData": false,
+    "sensitiveInput": true,
+    "analytics": false
+   },
+   "access": {
+    "tier": "free",
+    "auth": "none"
+   },
+   "seo": {
+    "path": "tools/hash-wordlist-matcher.html"
+   },
+   "i18n": {
+    "defaultLocale": "en"
+   },
+   "order": 40,
+   "featured": false
+  }
+ ]
+}

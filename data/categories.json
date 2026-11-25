@@ -1,0 +1,85 @@
+{
+ "schemaVersion": "1.0.0",
+ "categories": [
+  {
+   "id": "authentication",
+   "name": "Authentication",
+   "description": "Password, passphrase, PIN, token and credential tools.",
+   "icon": "key",
+   "order": 1,
+   "plannedCount": 19
+  },
+  {
+   "id": "encryption",
+   "name": "Encryption & Hashing",
+   "description": "Hashing, encoding, encryption and key tools.",
+   "icon": "lock",
+   "order": 2,
+   "plannedCount": 20
+  },
+  {
+   "id": "web-security",
+   "name": "Web Security",
+   "description": "Headers, CSP, cookies, CORS and browser security tools.",
+   "icon": "shield",
+   "order": 3,
+   "plannedCount": 25
+  },
+  {
+   "id": "network-security",
+   "name": "Network Security",
+   "description": "IP, DNS, port, subnet and protocol tools.",
+   "icon": "network",
+   "order": 4,
+   "plannedCount": 20
+  },
+  {
+   "id": "code-analysis",
+   "name": "Code Analysis",
+   "description": "Static checks, regex, secrets and dependency tools.",
+   "icon": "code",
+   "order": 5,
+   "plannedCount": 12
+  },
+  {
+   "id": "data-security",
+   "name": "Data Security",
+   "description": "Redaction, masking, classification and privacy tools.",
+   "icon": "database",
+   "order": 6,
+   "plannedCount": 13
+  },
+  {
+   "id": "api-security",
+   "name": "API Security",
+   "description": "JWT, OAuth, schema and request inspection tools.",
+   "icon": "api",
+   "order": 7,
+   "plannedCount": 13
+  },
+  {
+   "id": "forensics",
+   "name": "Forensics",
+   "description": "File, metadata, timestamp and artifact inspection tools.",
+   "icon": "search",
+   "order": 8,
+   "plannedCount": 14
+  },
+  {
+   "id": "developer-utilities",
+   "name": "Developer Utilities",
+   "description": "Formatters, converters, generators and everyday developer tools.",
+   "icon": "terminal",
+   "order": 9,
+   "plannedCount": 64
+  },
+  {
+   "id": "social-media",
+   "name": "Social Media",
+   "description": "Text, image-size, link and content-planning tools that work offline (no platform API).",
+   "icon": "share",
+   "order": 10,
+   "plannedCount": 15
+  }
+ ]
+}

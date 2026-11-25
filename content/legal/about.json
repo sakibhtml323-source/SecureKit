@@ -1,0 +1,7 @@
+{
+ "title": "About SecureKit",
+ "description": "SecureKit offers free, privacy-first password and developer tools that run in your browser.",
+ "h1": "About SecureKit",
+ "body": "<p>SecureKit is a set of free browser-based tools for checking and generating passwords and for everyday developer tasks such as hashing, Base64 and UUIDs.</p>\n<h2>How it works</h2><p>Nearly every tool runs locally using your browser's built-in Web Crypto API. The one exception is the breach check, which sends only the first five characters of a SHA-1 hash to the Have I Been Pwned range service.</p>\n<h2>What we do not claim</h2><p>No tool can guarantee security. Scores and crack-time figures are estimates. Use a password manager and multi-factor authentication alongside these tools.</p>\n<p><a href=\"tools/password-generator.html\">Try the password generator</a> or <a href=\"contact.html\">contact us</a>.</p>",
+ "note": "This is general informational content and should be reviewed for your specific business and jurisdiction. It is not legal advice."
+}

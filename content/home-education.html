@@ -1,0 +1,10 @@
+<section class="card" aria-labelledby="h-edu"><h2 id="h-edu">Password security basics</h2>
+<h3>What makes a strong password?</h3><p>Length matters most. A long, random password, or a passphrase of several unrelated words, is much harder to guess than a short one with a few symbols. Avoid names, dates and keyboard patterns.</p>
+<h3>Why password reuse is dangerous</h3><p>When one site is breached, attackers try the same email and password on other services. A unique password per account limits the damage to one account.</p>
+<h3>What is password entropy?</h3><p>Entropy estimates how unpredictable a password would be if every character were chosen randomly, measured in bits using length × log2(pool size). It is an estimate: a pattern or a dictionary word can make real strength far lower.</p>
+<h3>What is a password breach?</h3><p>A breach happens when a service's stored data is exposed. Passwords that appear in known breach data are tried first by attackers, so they should be replaced even if they look complex.</p>
+<h3>How does k-anonymity protect breach checking?</h3><p>Your browser hashes the password and sends only the first five characters of the hash. The service returns all matching suffixes and your browser compares them locally, so the full password and full hash are never sent.</p>
+<h3>Why Base64 is not encryption</h3><p>Base64 only changes how bytes are written as text. Anyone can reverse it without a key, so never use it to protect secrets.</p>
+<h3>Why MD5 and SHA-1 are not recommended</h3><p>Both are fast and have known collision weaknesses. Fast hashes are also a poor choice for storing passwords; use a slow, salted password hashing function such as Argon2, scrypt or bcrypt.</p>
+<h3>Why password managers are useful</h3><p>A reputable password manager creates and remembers a unique password for every account, so you only need to remember one strong master passphrase.</p>
+<h3>Why MFA matters</h3><p>Multi-factor authentication adds a second proof, such as an authenticator app or a security key, so a stolen password alone is not enough to sign in.</p></section>

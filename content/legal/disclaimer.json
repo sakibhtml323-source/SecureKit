@@ -1,0 +1,7 @@
+{
+ "title": "Disclaimer",
+ "description": "Important limitations of SecureKit&#x27;s security estimates and tools.",
+ "h1": "Disclaimer",
+ "body": "<p>SecureKit provides estimates for educational and convenience purposes. A strong score does not mean a password is safe, and a missing breach match does not mean a password has never been exposed.</p>\n<p>Crack-time results depend on hashing algorithms, hardware, rate limiting and attacker strategy. MD5 and SHA-1 are not suitable for password storage. Base64 is encoding, not encryption.</p>\n<p>Never reuse passwords, use a password manager and enable multi-factor authentication.</p>",
+ "note": "This is general informational content and should be reviewed for your specific business and jurisdiction. It is not legal advice."
+}
